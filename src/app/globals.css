@@ -164,3 +164,29 @@ body {
     padding: 0 24px;
   }
 }
+
+/* ── RESPONSIVE UTILITIES ───────────────────────────── */
+.section-pad {
+  padding: 100px 40px;
+}
+.card-pad {
+  padding: 40px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 60px 20px;
+  }
+  .card-pad {
+    padding: 24px;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

@@ -7,7 +7,7 @@ export default function Home() {
       <div className="hero-bg"></div>
       <div className="hero-grid"></div>
 
-      <div className="container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh", padding: "100px 40px" }}>
+      <div className="container section-pad" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100vh" }}>
         
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "64px", alignItems: "center" }}>
           

@@ -29,7 +29,7 @@ export default function AssessmentPage() {
 
   if (currentStep >= questions.length && outcomeId) {
     return (
-      <main style={{ minHeight: "100vh", position: "relative", display: "flex", flexDirection: "column", padding: "80px 40px" }}>
+      <main className="section-pad" style={{ minHeight: "100vh", position: "relative", display: "flex", flexDirection: "column" }}>
         <div className="container" style={{ maxWidth: "600px", zIndex: 1, position: "relative", margin: "auto" }}>
           <LeadForm outcomeId={outcomeId} />
         </div>
@@ -46,7 +46,7 @@ export default function AssessmentPage() {
         <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, var(--gold), var(--saffron))", transition: "width 0.4s ease" }}></div>
       </div>
 
-      <div className="container" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", flex: 1, padding: "80px 40px", maxWidth: "800px" }}>
+      <div className="container section-pad" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", justifyContent: "center", flex: 1, maxWidth: "800px" }}>
         
         <div style={{ animation: "fadeIn 0.5s" }} key={question.id}>
           <div className="text-mono" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>

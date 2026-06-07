@@ -36,7 +36,7 @@ export default function LeadForm({ outcomeId }: { outcomeId?: OutcomeId }) {
 
   if (status === "success") {
     return (
-      <div style={{ padding: "40px", border: "1px solid var(--gold)", background: "var(--card)" }}>
+      <div className="card-pad" style={{ border: "1px solid var(--gold)", background: "var(--card)" }}>
         <h3 className="text-serif" style={{ fontSize: "2rem", marginBottom: "16px" }}>Generating your report...</h3>
         <p className="text-sans" style={{ color: "var(--cream2)" }}>Please wait while we finalize your assessment.</p>
       </div>
@@ -44,7 +44,7 @@ export default function LeadForm({ outcomeId }: { outcomeId?: OutcomeId }) {
   }
 
   return (
-    <div style={{ padding: "40px", border: "1px solid var(--border)", background: "var(--card)", position: "relative", overflow: "hidden" }}>
+    <div className="card-pad" style={{ border: "1px solid var(--border)", background: "var(--card)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), var(--saffron), transparent)" }}></div>
       <h3 className="text-serif" style={{ fontSize: "2rem", color: "var(--cream)", marginBottom: "24px", fontWeight: 400 }}>Unlock Your Report</h3>
       <p className="text-sans" style={{ color: "var(--dim)", marginBottom: "24px", fontSize: "0.9rem" }}>

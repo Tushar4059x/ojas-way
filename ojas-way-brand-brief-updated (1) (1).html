@@ -1,0 +1,3712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OJAS WAY — Brand Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0B0905;
+  --bg2:#131009;
+  --card:#1A1610;
+  --card2:#221E16;
+  --gold:#C49A2A;
+  --gold2:#E8BF60;
+  --saffron:#D47220;
+  --cream:#EDE4CF;
+  --cream2:#B8AA96;
+  --dim:#7A6E5E;
+  --dimmer:#4A4236;
+  --border:#2A2318;
+  --border2:#38301E;
+  --sidebar:260px;
+  --fd:'Cormorant Garamond',serif;
+  --fb:'Outfit',sans-serif;
+  --fm:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--fb);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── SIDEBAR ───────────────────────────────────── */
+.sidebar{
+  position:fixed;top:0;left:0;bottom:0;
+  width:var(--sidebar);
+  background:var(--bg2);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  z-index:100;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.sidebar::-webkit-scrollbar{width:2px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sidebar-brand{
+  padding:32px 28px 24px;
+  border-bottom:1px solid var(--border);
+}
+.sidebar-brand .brand-name{
+  font-family:var(--fd);
+  font-size:1.4rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+.sidebar-brand .brand-sub{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  color:var(--dim);
+  text-transform:uppercase;
+  margin-top:4px;
+}
+.progress-bar-wrap{
+  height:2px;background:var(--border);
+  margin:0 28px;
+}
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--gold),var(--saffron));
+  width:0%;
+  transition:width 0.2s ease;
+}
+.nav-section{padding:16px 0 8px}
+.nav-section-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--dimmer);
+  padding:0 28px;
+  margin-bottom:4px;
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 28px;
+  cursor:pointer;
+  transition:all 0.2s;
+  text-decoration:none;
+  border-left:2px solid transparent;
+}
+.nav-item:hover{background:var(--card)}
+.nav-item.active{
+  border-left-color:var(--gold);
+  background:var(--card);
+}
+.nav-num{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  color:var(--dimmer);
+  min-width:18px;
+}
+.nav-item.active .nav-num{color:var(--gold)}
+.nav-text{
+  font-size:0.8rem;
+  color:var(--dim);
+  font-weight:400;
+  line-height:1.3;
+}
+.nav-item.active .nav-text{color:var(--cream2)}
+.sidebar-footer{
+  margin-top:auto;
+  padding:20px 28px;
+  border-top:1px solid var(--border);
+}
+.sidebar-footer p{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  color:var(--dimmer);
+  letter-spacing:0.1em;
+  line-height:1.8;
+}
+
+/* ── MAIN CONTENT ───────────────────────────────── */
+.main{margin-left:var(--sidebar)}
+
+/* ── HERO ─────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+  padding:80px;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 50%, rgba(196,154,42,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(212,114,32,0.05) 0%, transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(196,154,42,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,154,42,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-eyebrow{
+  font-family:var(--fm);
+  font-size:0.65rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:32px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.2s forwards;
+}
+.hero-title{
+  font-family:var(--fd);
+  font-size:clamp(5rem,12vw,10rem);
+  font-weight:300;
+  line-height:0.9;
+  letter-spacing:-0.01em;
+  color:var(--cream);
+  margin-bottom:24px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.4s forwards;
+}
+.hero-title span{
+  display:block;
+  font-style:italic;
+  color:var(--gold);
+}
+.hero-subtitle{
+  font-family:var(--fd);
+  font-size:clamp(1.2rem,2.5vw,1.8rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--cream2);
+  margin-bottom:48px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.6s forwards;
+  max-width:600px;
+  line-height:1.5;
+}
+.hero-meta{
+  display:flex;gap:48px;flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp 0.8s 0.8s forwards;
+}
+.meta-item{}
+.meta-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:6px;
+}
+.meta-value{
+  font-size:0.85rem;
+  color:var(--cream2);
+  font-weight:400;
+}
+.hero-line{
+  position:absolute;right:80px;top:0;bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,var(--border),var(--gold),var(--border),transparent);
+  opacity:0;
+  animation:fadeIn 1.2s 1s forwards;
+}
+.hero-version{
+  position:absolute;right:100px;bottom:80px;
+  font-family:var(--fm);
+  font-size:0.6rem;
+  color:var(--dimmer);
+  letter-spacing:0.2em;
+  writing-mode:vertical-rl;
+  opacity:0;
+  animation:fadeIn 1s 1.2s forwards;
+}
+
+/* ── SECTION COMMONS ────────────────────────────── */
+section{
+  padding:100px 80px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.section-label{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.section-num{
+  font-family:var(--fd);
+  font-size:clamp(5rem,8vw,8rem);
+  font-weight:300;
+  color:var(--border2);
+  line-height:1;
+  margin-bottom:-20px;
+  display:block;
+}
+.section-title{
+  font-family:var(--fd);
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  font-weight:500;
+  color:var(--cream);
+  line-height:1.1;
+  margin-bottom:48px;
+}
+.section-title em{
+  font-style:italic;
+  color:var(--gold);
+}
+.section-intro{
+  font-size:1.05rem;
+  color:var(--cream2);
+  line-height:1.9;
+  max-width:740px;
+  margin-bottom:56px;
+}
+
+/* ── DIVIDER ──────────────────────────────────── */
+.divider{
+  display:flex;align-items:center;gap:16px;
+  margin:56px 0;
+}
+.divider-line{flex:1;height:1px;background:var(--border)}
+.divider-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gold);
+}
+
+/* ── MANIFESTO ────────────────────────────────── */
+.manifesto-text{
+  font-family:var(--fd);
+  font-size:clamp(1.3rem,2.2vw,1.8rem);
+  font-weight:300;
+  line-height:1.8;
+  color:var(--cream2);
+  max-width:820px;
+}
+.manifesto-text strong{
+  color:var(--cream);
+  font-weight:600;
+}
+.manifesto-text em{
+  font-style:italic;
+  color:var(--gold);
+}
+.manifesto-text p{margin-bottom:1.5rem}
+.pull-quote{
+  margin:56px 0;
+  padding:40px 48px;
+  border-left:3px solid var(--gold);
+  background:var(--card);
+  position:relative;
+}
+.pull-quote::before{
+  content:'"';
+  font-family:var(--fd);
+  font-size:8rem;
+  line-height:1;
+  color:var(--border2);
+  position:absolute;
+  top:-20px;left:32px;
+}
+.pull-quote p{
+  font-family:var(--fd);
+  font-size:clamp(1.4rem,2vw,2rem);
+  font-style:italic;
+  font-weight:300;
+  color:var(--cream);
+  position:relative;z-index:1;
+  line-height:1.5;
+}
+
+/* ── OVERVIEW CARDS ───────────────────────────── */
+.overview-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+.overview-card{
+  background:var(--card);
+  padding:40px;
+  transition:background 0.2s;
+}
+.overview-card:hover{background:var(--card2)}
+.ov-icon{
+  font-size:1.5rem;
+  margin-bottom:16px;
+}
+.ov-title{
+  font-family:var(--fm);
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.ov-content{
+  font-size:0.9rem;
+  color:var(--cream2);
+  line-height:1.7;
+}
+
+/* ── PROBLEM ────────────────────────────────── */
+.problem-list{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
+  margin-bottom:48px;
+}
+.problem-item{
+  padding:32px;
+  border:1px solid var(--border);
+  background:var(--card);
+  position:relative;
+  overflow:hidden;
+}
+.problem-item::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--saffron),transparent);
+}
+.prob-num{
+  font-family:var(--fd);
+  font-size:3rem;
+  font-weight:300;
+  color:var(--dimmer);
+  line-height:1;
+  margin-bottom:16px;
+}
+.prob-title{
+  font-size:1rem;
+  font-weight:600;
+  color:var(--cream);
+  margin-bottom:8px;
+}
+.prob-desc{
+  font-size:0.85rem;
+  color:var(--dim);
+  line-height:1.7;
+}
+
+/* ── VISION / MISSION ─────────────────────────── */
+.vm-statement{
+  font-family:var(--fd);
+  font-size:clamp(1.6rem,3vw,2.6rem);
+  font-weight:400;
+  line-height:1.4;
+  color:var(--cream);
+  max-width:800px;
+  margin-bottom:48px;
+}
+.vm-statement em{
+  font-style:italic;
+  color:var(--gold);
+}
+.vm-breakdown{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:48px;
+}
+.vm-item{
+  padding:32px;
+  border:1px solid var(--border);
+  background:var(--card);
+}
+.vm-item-title{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.vm-item-text{
+  font-size:0.9rem;
+  color:var(--cream2);
+  line-height:1.7;
+}
+
+/* ── VALUES ───────────────────────────────────── */
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+.value-card{
+  padding:40px;
+  border:1px solid var(--border);
+  background:var(--card);
+  transition:all 0.3s;
+  position:relative;
+  overflow:hidden;
+}
+.value-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+.value-card::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.value-card:hover::after{opacity:1}
+.val-num{
+  font-family:var(--fd);
+  font-size:4rem;
+  font-weight:300;
+  color:var(--dimmer);
+  line-height:1;
+  margin-bottom:16px;
+}
+.val-name{
+  font-family:var(--fd);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:12px;
+}
+.val-tagline{
+  font-size:0.8rem;
+  font-style:italic;
+  color:var(--gold);
+  margin-bottom:16px;
+  font-family:var(--fd);
+}
+.val-desc{
+  font-size:0.88rem;
+  color:var(--dim);
+  line-height:1.7;
+}
+
+/* ── AUDIENCE ─────────────────────────────────── */
+.audience-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
+}
+.persona-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.persona-header{
+  padding:32px 32px 24px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  background:var(--card2);
+}
+.persona-tag{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--saffron);
+  margin-bottom:8px;
+}
+.persona-name{
+  font-family:var(--fd);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:4px;
+}
+.persona-desc{
+  font-size:0.8rem;
+  color:var(--dim);
+}
+.persona-body{padding:32px}
+.persona-row{
+  display:flex;gap:12px;
+  margin-bottom:20px;
+}
+.persona-row:last-child{margin-bottom:0}
+.pr-label{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  min-width:90px;
+  padding-top:2px;
+  flex-shrink:0;
+}
+.pr-value{
+  font-size:0.85rem;
+  color:var(--cream2);
+  line-height:1.6;
+}
+
+/* ── VOICE ────────────────────────────────────── */
+.voice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-bottom:48px;
+}
+.voice-card{
+  padding:32px;
+  border:1px solid var(--border);
+  background:var(--card);
+}
+.voice-card.yes{border-top-color:var(--gold)}
+.voice-card.no{border-top-color:var(--saffron)}
+.voice-title{
+  font-family:var(--fm);
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+.voice-title.yes{color:var(--gold)}
+.voice-title.no{color:var(--saffron)}
+.voice-list{list-style:none}
+.voice-list li{
+  font-size:0.88rem;
+  color:var(--cream2);
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.5;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.voice-list li::before{
+  content:'—';
+  color:var(--dim);
+  flex-shrink:0;
+}
+.lang-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:32px;
+}
+.lang-table th{
+  text-align:left;
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.lang-table td{
+  padding:20px 16px;
+  font-size:0.88rem;
+  color:var(--cream2);
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+  line-height:1.6;
+}
+.lang-table tr:hover td{background:var(--card)}
+
+/* ── CONTENT ARCHITECTURE ───────────────────────── */
+.layers{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.layer{
+  background:var(--card);
+  padding:48px;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:48px;
+  align-items:start;
+  transition:background 0.2s;
+}
+.layer:hover{background:var(--card2)}
+.layer-id{
+  display:flex;flex-direction:column;gap:12px;
+}
+.layer-num{
+  font-family:var(--fd);
+  font-size:5rem;
+  font-weight:300;
+  line-height:1;
+  color:var(--dimmer);
+}
+.layer-name{
+  font-family:var(--fd);
+  font-size:1.4rem;
+  font-weight:500;
+  color:var(--cream);
+}
+.layer-goal{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.layer-content{}
+.layer-q{
+  font-family:var(--fd);
+  font-size:1.5rem;
+  font-style:italic;
+  color:var(--cream2);
+  margin-bottom:16px;
+}
+.layer-desc{
+  font-size:0.9rem;
+  color:var(--dim);
+  line-height:1.8;
+  margin-bottom:24px;
+}
+.layer-examples{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.ex-tag{
+  font-family:var(--fb);
+  font-size:0.78rem;
+  color:var(--cream2);
+  background:var(--bg);
+  border:1px solid var(--border2);
+  padding:6px 14px;
+  border-radius:2px;
+}
+
+/* ── PLATFORM STRATEGY ──────────────────────────── */
+.platform-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+.platform-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.platform-header{
+  padding:28px 28px 20px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.platform-name{
+  font-family:var(--fd);
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--cream);
+}
+.platform-role{
+  font-size:0.78rem;
+  color:var(--gold);
+  font-family:var(--fm);
+  letter-spacing:0.1em;
+  font-size:0.6rem;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+.platform-body{padding:28px}
+.plat-row{margin-bottom:20px}
+.plat-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:6px;
+}
+.plat-val{
+  font-size:0.88rem;
+  color:var(--cream2);
+  line-height:1.6;
+}
+.plat-kpi{
+  display:flex;gap:8px;align-items:center;
+  margin-top:16px;padding-top:16px;
+  border-top:1px solid var(--border);
+}
+.plat-kpi-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.plat-kpi-val{
+  font-family:var(--fd);
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--gold);
+}
+
+/* ── FUNNEL ───────────────────────────────────── */
+.funnel-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+.funnel-track{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.funnel-header{
+  padding:28px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.funnel-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:8px;
+}
+.funnel-title{
+  font-family:var(--fd);
+  font-size:1.5rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:4px;
+}
+.funnel-sub{font-size:0.8rem;color:var(--dim)}
+.funnel-steps{padding:28px;display:flex;flex-direction:column;gap:0}
+.funnel-step{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+}
+.funnel-step:last-child{border-bottom:none}
+.fstep-num{
+  width:28px;height:28px;
+  border-radius:50%;
+  background:var(--card2);
+  border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fm);
+  font-size:0.6rem;
+  color:var(--gold);
+  flex-shrink:0;
+}
+.fstep-body{}
+.fstep-title{
+  font-size:0.88rem;
+  font-weight:600;
+  color:var(--cream);
+  margin-bottom:4px;
+}
+.fstep-desc{
+  font-size:0.8rem;
+  color:var(--dim);
+  line-height:1.5;
+}
+.funnel-arrow{
+  display:flex;justify-content:center;
+  padding:8px 0;
+  color:var(--dimmer);
+  font-size:0.8rem;
+}
+
+/* ── STRATEGIC SYSTEMS ────────────────────────── */
+.strategy-block{
+  margin-top:56px;
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:40px;
+  position:relative;
+  overflow:hidden;
+}
+.strategy-block::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--saffron),transparent);
+}
+.strategy-kicker{
+  font-family:var(--fm);
+  font-size:0.58rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+.strategy-title{
+  font-family:var(--fd);
+  font-size:clamp(1.5rem,2.6vw,2.2rem);
+  font-weight:500;
+  color:var(--cream);
+  line-height:1.2;
+  margin-bottom:16px;
+}
+.strategy-copy{
+  font-size:0.92rem;
+  color:var(--cream2);
+  line-height:1.85;
+  max-width:820px;
+}
+.entry-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin:32px 0;
+}
+.entry-point{
+  padding:22px 24px;
+  border:1px solid var(--border2);
+  background:var(--bg);
+}
+.entry-point span{
+  display:block;
+  font-family:var(--fm);
+  font-size:0.52rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:6px;
+}
+.entry-point strong{
+  font-family:var(--fd);
+  font-size:1.35rem;
+  font-weight:500;
+  color:var(--cream);
+  line-height:1.2;
+}
+.journey-flow,
+.hierarchy-flow{
+  display:grid;
+  grid-template-columns:repeat(11,auto);
+  align-items:center;
+  gap:10px;
+  margin-top:28px;
+}
+.journey-node,
+.hierarchy-node{
+  min-width:112px;
+  padding:16px 18px;
+  border:1px solid var(--border2);
+  background:var(--card2);
+  text-align:center;
+}
+.journey-node{
+  font-family:var(--fm);
+  font-size:0.58rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--cream2);
+}
+.hierarchy-node{
+  font-family:var(--fd);
+  font-size:1.3rem;
+  font-weight:500;
+  color:var(--cream);
+}
+.journey-node.primary,
+.hierarchy-node.primary{
+  border-color:var(--gold);
+  color:var(--gold2);
+}
+.journey-arrow,
+.hierarchy-arrow{
+  color:var(--gold);
+  font-family:var(--fm);
+  font-size:0.85rem;
+  text-align:center;
+}
+.hierarchy-stack{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width:560px;
+  margin-top:28px;
+}
+.hierarchy-stack .hierarchy-node{
+  width:100%;
+}
+.hierarchy-down{
+  color:var(--gold);
+  font-family:var(--fm);
+  font-size:0.9rem;
+  text-align:center;
+  line-height:1;
+}
+.lead-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.lead-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.lead-header{
+  padding:28px 28px 22px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.lead-num{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--saffron);
+  margin-bottom:8px;
+}
+.lead-name{
+  font-family:var(--fd);
+  font-size:1.55rem;
+  font-weight:500;
+  color:var(--cream);
+  line-height:1.2;
+}
+.lead-body{padding:28px}
+.lead-row{margin-bottom:18px}
+.lead-row:last-child{margin-bottom:0}
+.lead-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:6px;
+}
+.lead-value{
+  font-size:0.86rem;
+  color:var(--cream2);
+  line-height:1.62;
+}
+.asset-note{
+  margin-top:40px;
+  padding:32px;
+  border:2px solid var(--gold);
+  background:var(--card2);
+}
+.asset-note-title{
+  font-family:var(--fd);
+  font-size:1.55rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:18px;
+}
+.asset-fields{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:18px 0;
+}
+.asset-field{
+  font-family:var(--fm);
+  font-size:0.58rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--cream);
+  border:1px solid var(--border2);
+  background:var(--bg);
+  padding:10px 14px;
+}
+.comparison-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin:36px 0;
+}
+.comparison-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:36px;
+  border-top:3px solid var(--saffron);
+}
+.comparison-card.owned{border-top-color:var(--gold)}
+.comparison-title{
+  font-family:var(--fd);
+  font-size:2rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:10px;
+}
+.comparison-role{
+  font-family:var(--fm);
+  font-size:0.58rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:24px;
+}
+.comparison-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.comparison-list li{
+  font-size:0.88rem;
+  color:var(--cream2);
+  line-height:1.55;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.comparison-list li:last-child{border-bottom:none;padding-bottom:0}
+.comparison-list li::before{
+  content:'—';
+  color:var(--gold);
+  flex-shrink:0;
+}
+.metric-equation{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  align-items:center;
+  gap:14px;
+  padding:32px;
+  border:1px solid var(--border);
+  background:var(--card2);
+  margin-top:32px;
+}
+.metric-piece{text-align:center}
+.metric-number{
+  font-family:var(--fd);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:300;
+  color:var(--gold2);
+  line-height:1;
+  display:block;
+}
+.metric-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-top:8px;
+}
+.metric-op{
+  color:var(--dim);
+  font-family:var(--fm);
+}
+.core-question{
+  margin-top:48px;
+  padding:42px;
+  border-left:4px solid var(--gold);
+  background:var(--card);
+}
+.core-question .question{
+  font-family:var(--fd);
+  font-size:clamp(1.6rem,3vw,2.5rem);
+  font-style:italic;
+  color:var(--cream);
+  line-height:1.35;
+  margin-bottom:24px;
+}
+.core-question .answer{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--border);
+}
+.answer-step{
+  background:var(--bg);
+  padding:20px;
+  font-family:var(--fm);
+  font-size:0.58rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--cream2);
+  text-align:center;
+}
+.engine-panel{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.engine-header{
+  padding:36px 40px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.engine-name{
+  font-family:var(--fd);
+  font-size:clamp(2rem,4vw,3.4rem);
+  font-weight:500;
+  color:var(--gold2);
+  line-height:1.05;
+}
+.engine-sub{
+  font-size:0.92rem;
+  color:var(--cream2);
+  line-height:1.75;
+  max-width:780px;
+  margin-top:18px;
+}
+.engine-chain{padding:32px 40px}
+.engine-step{
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:18px;
+  position:relative;
+  padding:0 0 28px;
+}
+.engine-step:last-child{padding-bottom:0}
+.engine-step::after{
+  content:'';
+  position:absolute;
+  left:26px;
+  top:56px;
+  bottom:0;
+  width:1px;
+  background:var(--border2);
+}
+.engine-step:last-child::after{display:none}
+.engine-num{
+  width:54px;height:54px;
+  border:1px solid var(--border2);
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--fm);
+  font-size:0.62rem;
+  color:var(--gold);
+  position:relative;
+  z-index:1;
+}
+.engine-copy{
+  padding:14px 0 0;
+  border-bottom:1px solid var(--border);
+}
+.engine-step:last-child .engine-copy{border-bottom:none}
+.engine-title{
+  font-family:var(--fd);
+  font-size:1.45rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:4px;
+}
+.engine-desc{
+  font-size:0.86rem;
+  color:var(--dim);
+  line-height:1.65;
+  padding-bottom:22px;
+}
+.revenue-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+}
+.revenue-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:30px;
+}
+.revenue-stage{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--saffron);
+  margin-bottom:10px;
+}
+.revenue-name{
+  font-family:var(--fd);
+  font-size:1.45rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:10px;
+}
+.revenue-desc{
+  font-size:0.86rem;
+  color:var(--dim);
+  line-height:1.68;
+}
+.logic-chain{
+  margin-top:40px;
+  padding:34px;
+  border:1px solid var(--border2);
+  background:var(--bg);
+  text-align:center;
+}
+.logic-line{
+  font-family:var(--fd);
+  font-size:clamp(1.35rem,2.4vw,2rem);
+  color:var(--cream);
+  line-height:1.5;
+}
+.logic-line em{
+  color:var(--gold);
+  font-style:italic;
+}
+
+/* ── GOALS ────────────────────────────────────── */
+.goals-timeline{
+  display:flex;flex-direction:column;gap:48px;
+}
+.goal-block{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.goal-header{
+  padding:32px 40px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  flex-wrap:wrap;gap:16px;
+}
+.goal-period{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--saffron);
+  margin-bottom:8px;
+}
+.goal-title{
+  font-family:var(--fd);
+  font-size:2rem;
+  font-weight:500;
+  color:var(--cream);
+}
+.goal-phase{
+  font-size:0.85rem;
+  color:var(--dim);
+  font-style:italic;
+  font-family:var(--fd);
+  font-size:1rem;
+}
+.goal-body{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+}
+.goal-col{
+  padding:40px;
+  border-right:1px solid var(--border);
+}
+.goal-col:last-child{border-right:none}
+.goal-col-title{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:24px;
+}
+.goal-metrics{list-style:none;display:flex;flex-direction:column;gap:16px}
+.goal-metric{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.goal-metric:last-child{border-bottom:none;padding-bottom:0}
+.gm-label{font-size:0.85rem;color:var(--cream2)}
+.gm-val{
+  font-family:var(--fd);
+  font-size:1.3rem;
+  font-weight:500;
+  color:var(--gold);
+}
+.goal-actions{list-style:none;display:flex;flex-direction:column;gap:10px}
+.goal-action{
+  font-size:0.85rem;
+  color:var(--cream2);
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.5;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.goal-action::before{
+  content:'→';
+  color:var(--gold);
+  flex-shrink:0;
+}
+
+/* ── ROLES ────────────────────────────────────── */
+.roles-nav{
+  display:flex;gap:0;
+  border:1px solid var(--border);
+  margin-bottom:32px;
+  overflow-x:auto;
+}
+.role-tab{
+  padding:14px 24px;
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--dim);
+  cursor:pointer;
+  border-right:1px solid var(--border);
+  transition:all 0.2s;
+  white-space:nowrap;
+  background:var(--card);
+}
+.role-tab:last-child{border-right:none}
+.role-tab:hover{background:var(--card2);color:var(--cream2)}
+.role-tab.active{background:var(--bg);color:var(--gold)}
+.role-panel{display:none;animation:fadeIn 0.3s ease}
+.role-panel.active{display:block}
+.role-content{
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:48px;
+}
+.role-intro{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:48px;
+  margin-bottom:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--border);
+}
+.role-left .role-title{
+  font-family:var(--fd);
+  font-size:2.2rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:8px;
+}
+.role-left .role-north{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:12px;
+}
+.role-left .role-north-val{
+  font-family:var(--fd);
+  font-size:1.1rem;
+  font-style:italic;
+  color:var(--gold);
+}
+.role-right .role-purpose{
+  font-family:var(--fd);
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--cream2);
+  line-height:1.6;
+  margin-bottom:16px;
+}
+.role-right .role-desc{
+  font-size:0.9rem;
+  color:var(--dim);
+  line-height:1.8;
+}
+.role-sections{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+.role-sec{
+  border:1px solid var(--border);
+  padding:28px;
+}
+.role-sec-title{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:16px;
+}
+.role-sec-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.role-sec-list li{
+  font-size:0.85rem;
+  color:var(--cream2);
+  line-height:1.5;
+  display:flex;gap:8px;align-items:flex-start;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+}
+.role-sec-list li:last-child{border-bottom:none;padding-bottom:0}
+.role-sec-list li.never{color:var(--saffron)}
+.role-sec-list li::before{
+  content:'▸';
+  color:var(--gold);
+  font-size:0.65rem;
+  flex-shrink:0;
+  padding-top:2px;
+}
+.role-sec-list li.never::before{color:var(--saffron)}
+.role-kpi-row{
+  display:flex;flex-wrap:wrap;gap:16px;
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+}
+.kpi-item{
+  flex:1;min-width:140px;
+  padding:20px;
+  background:var(--bg);
+  border:1px solid var(--border);
+}
+.kpi-label{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:8px;
+}
+.kpi-metric{
+  font-family:var(--fd);
+  font-size:1.5rem;
+  font-weight:500;
+  color:var(--cream);
+}
+
+/* ── IMC LAYER ────────────────────────────────── */
+.imc-architecture{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-bottom:48px;
+}
+.imc-level{
+  background:var(--card);
+  padding:36px;
+  text-align:center;
+  position:relative;
+}
+.imc-level-num{
+  font-family:var(--fm);
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:16px;
+}
+.imc-level-name{
+  font-family:var(--fd);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:8px;
+}
+.imc-level-role{
+  font-size:0.8rem;
+  color:var(--gold);
+  font-style:italic;
+  font-family:var(--fd);
+}
+.imc-level.primary .imc-level-name{color:var(--gold2)}
+.imc-level.secondary{opacity:0.7}
+
+/* ── IMPACT ───────────────────────────────────── */
+.impact-numbers{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-bottom:48px;
+}
+.impact-num-item{
+  background:var(--card);
+  padding:40px;
+  text-align:center;
+}
+.impact-num{
+  font-family:var(--fd);
+  font-size:clamp(2.5rem,4vw,4rem);
+  font-weight:300;
+  color:var(--gold);
+  line-height:1;
+  display:block;
+  margin-bottom:8px;
+}
+.impact-num-label{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.impact-pillars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+.impact-pillar{
+  padding:32px;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-top:2px solid var(--gold);
+}
+.ip-title{
+  font-family:var(--fd);
+  font-size:1.3rem;
+  font-weight:500;
+  color:var(--cream);
+  margin-bottom:12px;
+}
+.ip-desc{
+  font-size:0.85rem;
+  color:var(--dim);
+  line-height:1.7;
+}
+
+/* ── NON-NEGOTIABLES ───────────────────────────── */
+.rules-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.rules-col{
+  border:1px solid var(--border);
+  background:var(--card);
+  overflow:hidden;
+}
+.rules-header{
+  padding:24px 32px;
+  border-bottom:1px solid var(--border);
+  background:var(--card2);
+}
+.rules-header h3{
+  font-family:var(--fm);
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+}
+.rules-header h3.never{color:var(--saffron)}
+.rules-header h3.always{color:var(--gold)}
+.rules-list{list-style:none;padding:24px 32px;display:flex;flex-direction:column;gap:0}
+.rule-item{
+  font-size:0.88rem;
+  color:var(--cream2);
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.5;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.rule-item:last-child{border-bottom:none}
+.rule-item.never::before{content:'✕';color:var(--saffron);flex-shrink:0;font-size:0.7rem;padding-top:3px}
+.rule-item.always::before{content:'✓';color:var(--gold);flex-shrink:0;font-size:0.7rem;padding-top:3px}
+
+/* ── DOCUMENT FOOTER ──────────────────────────── */
+.doc-footer{
+  padding:60px 80px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;gap:24px;
+}
+.footer-brand{
+  font-family:var(--fd);
+  font-size:1.4rem;
+  font-weight:500;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.footer-meta{
+  font-family:var(--fm);
+  font-size:0.6rem;
+  color:var(--dimmer);
+  letter-spacing:0.15em;
+  text-align:right;
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{margin-left:0}
+  section{padding:60px 24px}
+  .hero{padding:60px 24px;min-height:80vh}
+  .voice-grid,.funnel-wrap,.rules-grid,.role-intro,.comparison-grid{grid-template-columns:1fr}
+  .layer{grid-template-columns:1fr}
+  .goal-body{grid-template-columns:1fr}
+  .goal-col{border-right:none;border-bottom:1px solid var(--border)}
+  .imc-architecture{grid-template-columns:1fr}
+  .journey-flow,.hierarchy-flow{grid-template-columns:1fr;justify-items:stretch}
+  .journey-node,.hierarchy-node{width:100%}
+  .journey-arrow,.hierarchy-arrow{transform:rotate(90deg)}
+  .metric-equation{grid-template-columns:1fr;justify-items:center}
+  .engine-chain{padding:28px 24px}
+  .engine-header{padding:32px 28px}
+}
+@media(max-width:600px){
+  .hero-title{font-size:4rem}
+  section{padding:48px 20px}
+  .pull-quote{padding:28px}
+  .strategy-block,.core-question,.comparison-card,.asset-note{padding:28px}
+  .persona-row{flex-direction:column;gap:4px}
+  .pr-label{min-width:0}
+}
+
+/* ── UTILITY ──────────────────────────────────── */
+.gold{color:var(--gold)}
+.saffron{color:var(--saffron)}
+.muted{color:var(--dim)}
+.mt-lg{margin-top:48px}
+.mt-md{margin-top:32px}
+.body-note{
+  font-size:0.85rem;
+  color:var(--dim);
+  line-height:1.8;
+  max-width:720px;
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════ -->
+<!--  SIDEBAR NAVIGATION                          -->
+<!-- ════════════════════════════════════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-name">OJAS WAY</div>
+    <div class="brand-sub">Brand Brief · v2.0</div>
+  </div>
+  <div class="progress-bar-wrap" style="margin-top:16px">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Foundation</div>
+    <a class="nav-item active" href="#manifesto">
+      <span class="nav-num">I</span>
+      <span class="nav-text">The Manifesto</span>
+    </a>
+    <a class="nav-item" href="#overview">
+      <span class="nav-num">II</span>
+      <span class="nav-text">Brand at a Glance</span>
+    </a>
+    <a class="nav-item" href="#problem">
+      <span class="nav-num">III</span>
+      <span class="nav-text">The Problem</span>
+    </a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Identity</div>
+    <a class="nav-item" href="#vision">
+      <span class="nav-num">IV</span>
+      <span class="nav-text">Vision</span>
+    </a>
+    <a class="nav-item" href="#mission">
+      <span class="nav-num">V</span>
+      <span class="nav-text">Mission</span>
+    </a>
+    <a class="nav-item" href="#values">
+      <span class="nav-num">VI</span>
+      <span class="nav-text">Brand Values</span>
+    </a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Strategy</div>
+    <a class="nav-item" href="#audience">
+      <span class="nav-num">VII</span>
+      <span class="nav-text">Target Audience</span>
+    </a>
+    <a class="nav-item" href="#voice">
+      <span class="nav-num">VIII</span>
+      <span class="nav-text">Brand Voice</span>
+    </a>
+    <a class="nav-item" href="#content">
+      <span class="nav-num">IX</span>
+      <span class="nav-text">Content Architecture</span>
+    </a>
+    <a class="nav-item" href="#lead-magnets">
+      <span class="nav-num">X</span>
+      <span class="nav-text">Lead Magnet Ecosystem</span>
+    </a>
+    <a class="nav-item" href="#email-asset">
+      <span class="nav-num">XI</span>
+      <span class="nav-text">Knowledge Letter</span>
+    </a>
+    <a class="nav-item" href="#platforms">
+      <span class="nav-num">XII</span>
+      <span class="nav-text">Platform Strategy</span>
+    </a>
+    <a class="nav-item" href="#funnels">
+      <span class="nav-num">XIII</span>
+      <span class="nav-text">Funnel Architecture</span>
+    </a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Execution</div>
+    <a class="nav-item" href="#revenue-system">
+      <span class="nav-num">XIV</span>
+      <span class="nav-text">₹1 Lakh System</span>
+    </a>
+    <a class="nav-item" href="#goals">
+      <span class="nav-num">XV</span>
+      <span class="nav-text">Growth Goals</span>
+    </a>
+    <a class="nav-item" href="#roles">
+      <span class="nav-num">XVI</span>
+      <span class="nav-text">Role Guides</span>
+    </a>
+    <a class="nav-item" href="#imc">
+      <span class="nav-num">XVII</span>
+      <span class="nav-text">The IMC Partnership</span>
+    </a>
+    <a class="nav-item" href="#impact">
+      <span class="nav-num">XVIII</span>
+      <span class="nav-text">The Impact</span>
+    </a>
+    <a class="nav-item" href="#rules">
+      <span class="nav-num">XIX</span>
+      <span class="nav-text">Non-Negotiables</span>
+    </a>
+    <a class="nav-item" href="#mentorship">
+      <span class="nav-num">XX</span>
+      <span class="nav-text">Free Mentorship Programme</span>
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    <p>OJAS WAY — Brand Brief<br>Version 2.0 · Confidential<br>Foundation Document</p>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════ -->
+<!--  MAIN CONTENT                               -->
+<!-- ════════════════════════════════════════════ -->
+<main class="main">
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section id="hero" class="hero" style="border-bottom:1px solid var(--border)">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-line"></div>
+  <span class="hero-version">BRAND BRIEF · v2.0 · 2026</span>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Foundation Document · Confidential</div>
+    <h1 class="hero-title">
+      OJAS
+      <span>WAY</span>
+    </h1>
+    <p class="hero-subtitle">Reviving Ancient Intelligence.<br>Rebuilding Modern India.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Brand Category</div>
+        <div class="meta-value">Digital Wellness Media</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Primary Market</div>
+        <div class="meta-value">India (EN / HI / TE)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Product Partner</div>
+        <div class="meta-value">IMC — International Marketing Corporation</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Core Audience</div>
+        <div class="meta-value">Gen Z & Millennials (18–38)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── I. MANIFESTO ──────────────────────────── -->
+<section id="manifesto" class="reveal">
+  <span class="section-num">I</span>
+  <div class="section-label">The Manifesto</div>
+  <h2 class="section-title">Why <em>OJAS WAY</em> Exists</h2>
+  <div class="manifesto-text">
+    <p>Modern India is unwell in ways that don't show up on blood reports.</p>
+    <p>We are exhausted — but blame it on the workload. We are anxious — but call it <em>"being busy."</em> We are inflamed, depleted, disconnected from our own bodies — and we have normalized every single bit of it. A generation of Indians is reaching for a third cup of coffee at 3PM, lying awake at 1AM despite being bone-tired, swallowing antacids like candy, and Googling symptoms at midnight — convinced that this is just what modern life feels like.</p>
+    <p>It doesn't have to.</p>
+    <p>For 5,000 years, our ancestors operated on a completely different intelligence. They had a word for the quality we have lost: <strong>Ojas.</strong> In the science of Ayurveda, ojas is the most refined product of perfect nourishment and balanced living. It is the biological essence of immunity, vitality, mental clarity, and emotional resilience. When your ojas is full, you thrive — not just survive. When it is depleted, everything falls apart in ways that are hard to name but impossible to ignore.</p>
+    <p>Somewhere between industrialization, processed food, digital addiction, and the relentless pressure to perform — we stopped building ojas. We started destroying it.</p>
+    <p><strong>OJAS WAY exists to reverse that.</strong></p>
+    <p>Not with guilt. Not with lectures. Not with another supplement company that puts "natural" on its label and charges ₹3,000 a bottle. We exist to create content so cinematic, so compelling, so deeply resonant that a 23-year-old in Hyderabad — who has never sat through a single Ayurveda class — watches a 60-second Reel and thinks: <em>This is exactly what I've been missing. This is how I want to live.</em></p>
+    <p>We are translating a 5,000-year-old science into the language of today's India. In English, Hindi, and Telugu. Across Instagram, YouTube, Facebook, and WhatsApp. For the software engineer who cannot explain why she's always tired. For the college student who looks healthy but feels hollow. For the parent watching their children make the same mistakes they made. For the entrepreneur grinding so hard they forgot to breathe.</p>
+    <p>We are not a wellness brand. We are a <strong>shift in perspective.</strong> We exist to change what an entire generation believes about health — from something boring, optional, and inconvenient, to something <em>foundational, mandatory, and genuinely cool.</em></p>
+  </div>
+  <div class="pull-quote">
+    <p>"Health is not a destination you reach. It is the ground you build everything else on. OJAS WAY is the map back to that ground — written in the language of your generation."</p>
+  </div>
+  <div class="manifesto-text">
+    <p>This is a bold initiative. The Ayurveda content space is cluttered with MLM pitches disguised as wellness advice. We will not be that. We will earn the right to sell by first earning the right to be heard. We lead with education. We build with community. We convert through trust. And when the moment is right — we introduce tools, products, and a model that people want to be part of because they have already experienced what it changed for them.</p>
+    <p>At scale, OJAS WAY will be the face of wellness for every Indian — regardless of their income, their city, or their language. That is not a marketing claim. It is the reason this brand exists.</p>
+  </div>
+</section>
+
+<!-- ── II. BRAND OVERVIEW ──────────────────── -->
+<section id="overview" class="reveal">
+  <span class="section-num">II</span>
+  <div class="section-label">Brand at a Glance</div>
+  <h2 class="section-title">What <em>OJAS WAY</em> Is</h2>
+  <p class="section-intro">A complete summary of the brand — what it is, what it does, how it operates, and what makes it different. When anyone asks "what is OJAS WAY?", this section is the answer.</p>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="ov-icon">◈</div>
+      <div class="ov-title">What We Are</div>
+      <div class="ov-content">A trilingual digital wellness media brand built on the science of Ayurveda, designed for the pace and psychology of modern India. We create content, build community, and drive conversion through a fully automated digital ecosystem across Instagram, YouTube, Facebook, Email, and WhatsApp.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-icon">◉</div>
+      <div class="ov-title">What We Do</div>
+      <div class="ov-content">We produce premium, cinematic, relatable content in English, Hindi, and Telugu that educates people on Ayurvedic wellness — then naturally introduces them to the products and business model that make it accessible. We do not sell first. We teach, earn trust, then convert.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-icon">◎</div>
+      <div class="ov-title">Who We Serve</div>
+      <div class="ov-content">Gen Z and Millennials aged 18–38 in urban and semi-urban India who are health-curious, digitally native, skeptical of pharmaceutical solutions, and ready to reconnect with traditional Indian wisdom — if someone can explain it in their language.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-icon">◐</div>
+      <div class="ov-title">How We Make Money</div>
+      <div class="ov-content">Product commissions from IMC (International Marketing Corporation) sales to customers who discover us through content. Network commissions from associates recruited into the IMC model. Long-term: brand partnerships, sponsorships, and potentially our own product line.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-icon">◑</div>
+      <div class="ov-title">What Makes Us Different</div>
+      <div class="ov-content">We do not lead with the product or the business opportunity. We lead with the shift in perspective. Most wellness brands sell products. We change beliefs. The products follow naturally after. This is content-first, education-first, trust-first — everything else second.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-icon">◒</div>
+      <div class="ov-title">Our Secret Weapon</div>
+      <div class="ov-content">Five years of genuine family use of IMC products. Real testimonials. Real transformations. Real belief in what we're recommending. In a space full of paid promotions and fake reviews, authentic conviction is the rarest and most powerful currency. We have it.</div>
+    </div>
+    <div class="overview-card" style="border-top:3px solid var(--gold);grid-column:1/-1">
+      <div class="ov-icon" style="font-size:1.8rem">✦</div>
+      <div class="ov-title" style="color:var(--gold2);font-size:0.75rem;letter-spacing:0.25em">The Associate Engine — How We Build the Network</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px">
+        <div>
+          <div style="font-family:var(--fm);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--saffron);margin-bottom:10px">Customer Acquisition</div>
+          <div style="font-family:var(--fd);font-size:1.15rem;font-style:italic;color:var(--cream);margin-bottom:8px">Product knowledge &amp; benefits</div>
+          <div class="ov-content">Followers become customers because they understand what the products do and have seen real results. Education earns the sale — never pressure.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--fm);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Associate Acquisition</div>
+          <div style="font-family:var(--fd);font-size:1.15rem;font-style:italic;color:var(--cream);margin-bottom:8px">Free mentorship programmes by senior leaders</div>
+          <div class="ov-content">Dedicated people at the highest level of the business run regular free meetings, discussions, and training sessions — open to anyone at any stage. Customers who experience this mentorship convert into associates because they want to, not because they were sold to.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── III. THE PROBLEM ─────────────────────── -->
+<section id="problem" class="reveal">
+  <span class="section-num">III</span>
+  <div class="section-label">The Problem We Exist to Solve</div>
+  <h2 class="section-title">The <em>Crisis</em> Nobody Is Naming</h2>
+  <p class="section-intro">Understanding the problem precisely is what separates great brands from generic ones. OJAS WAY was born to solve six specific, interconnected problems in the Indian wellness space.</p>
+  <ul class="problem-list">
+    <li class="problem-item">
+      <div class="prob-num">01</div>
+      <div class="prob-title">Ancient wisdom. Modern rejection.</div>
+      <div class="prob-desc">India possesses one of the world's most sophisticated medical and wellness systems in Ayurveda — and an entire generation has been conditioned to dismiss it as "old-fashioned" or "unscientific." The same people who dismiss tulsi and ashwagandha pay ₹4,000 for branded "adaptogen blends" from the West that contain the same ingredients.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">02</div>
+      <div class="prob-title">Wellness is perceived as boring, expensive, and elite.</div>
+      <div class="prob-desc">The dominant visual language of wellness — juice cleanses, yoga retreats, premium gyms, designer supplements — has made health feel like a luxury product. Gen Z in tier-2 cities don't see themselves in the wellness content they scroll past. They have opted out. OJAS WAY must make them opt back in.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">03</div>
+      <div class="prob-title">The Ayurveda content space is dominated by MLM noise.</div>
+      <div class="prob-desc">Search "Ayurveda products" on Instagram and you find thousands of identical posts from direct selling associates pushing products without any educational context. The content is promotional, low-quality, and trust-destroying. The category needs a credible, content-first voice. That gap is enormous.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">04</div>
+      <div class="prob-title">Health anxiety is rising. Trust in conventional medicine is falling.</div>
+      <div class="prob-desc">Post-pandemic India has a generation that is more health-conscious than any before it — but more confused about who to trust. Influencer misinformation, pharmaceutical advertising, and contradictory advice have created a trust vacuum. A credible, educational, authentic brand can fill that vacuum and win it permanently.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">05</div>
+      <div class="prob-title">The multilingual gap in Indian wellness content.</div>
+      <div class="prob-desc">The vast majority of quality wellness content is in English — cutting out hundreds of millions of Hindi and Telugu speakers. The content that exists in regional languages is low production quality or promotional. This is the single largest distribution gap in Indian wellness media right now.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">06</div>
+      <div class="prob-title">No one is connecting ancient wellness to a real business model at scale.</div>
+      <div class="prob-desc">There is a massive opportunity to build a brand that teaches people how to be healthy AND gives them a genuine, ethical way to earn from sharing what they believe in. The IMC associate model, positioned correctly, is not a sales scheme — it is a way to monetize real conviction. Nobody is doing this with integrity and digital scale simultaneously.</div>
+    </li>
+  </ul>
+  <div class="strategy-block">
+    <div class="strategy-kicker">The Real Entry Points</div>
+    <div class="strategy-title">People do not wake up wanting Ayurveda. They wake up wanting relief.</div>
+    <div class="strategy-copy">The first emotional doorway is almost never a philosophy, a product, or a business opportunity. It is a lived problem: the tiredness that does not go away, the digestion that feels unpredictable, the stress that has become normal, the desire to earn more without leaving dignity behind. OJAS WAY earns attention by naming the problem first, then earns trust by educating, then earns conversion by making Ayurveda feel practical, accessible, and connected to real life.</div>
+    <div class="entry-grid">
+      <div class="entry-point"><span>Entry 01</span><strong>Low energy</strong></div>
+      <div class="entry-point"><span>Entry 02</span><strong>Fatigue</strong></div>
+      <div class="entry-point"><span>Entry 03</span><strong>Poor digestion</strong></div>
+      <div class="entry-point"><span>Entry 04</span><strong>Weight gain</strong></div>
+      <div class="entry-point"><span>Entry 05</span><strong>Stress</strong></div>
+      <div class="entry-point"><span>Entry 06</span><strong>Poor sleep</strong></div>
+      <div class="entry-point"><span>Entry 07</span><strong>Low immunity</strong></div>
+      <div class="entry-point"><span>Entry 08</span><strong>Extra income</strong></div>
+    </div>
+    <div class="strategy-kicker" style="margin-top:8px">The Actual Customer Journey</div>
+    <div class="journey-flow">
+      <div class="journey-node primary">Problem</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Education</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Ayurveda</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Product</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Community</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node primary">Associate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IV. VISION ──────────────────────────── -->
+<section id="vision" class="reveal">
+  <span class="section-num">IV</span>
+  <div class="section-label">Vision</div>
+  <h2 class="section-title">Where <em>OJAS WAY</em> Is Going</h2>
+  <div class="vm-statement">
+    To become <em>India's most trusted, most loved, and most-watched wellness brand</em> — the one that made an entire generation realize their health is their most valuable asset, and their ancestral wisdom is the most powerful guide they were born with.
+  </div>
+  <p class="section-intro">By 2035, OJAS WAY is a recognized pan-Indian wellness media property reaching millions of people in three languages. It is the brand that parents recommend to their children and doctors reference as a credible source of Ayurvedic education. It is not just a content page — it is a movement, a community, and a business ecosystem that has empowered tens of thousands of people to both live better and earn from it.</p>
+  <div class="vm-breakdown">
+    <div class="vm-item">
+      <div class="vm-item-title">The Content Vision</div>
+      <div class="vm-item-text">Premium, cinematic wellness content in English, Hindi, and Telugu that feels as high-quality as a Netflix documentary but is accessible on a 5-minute Reel. Content that people save, share, and come back to because it actually changes how they think and live.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">The Community Vision</div>
+      <div class="vm-item-text">A living, breathing community of hundreds of thousands of Indians who have chosen the OJAS WAY — daily habits, Ayurvedic principles, and an unshakeable conviction that their health is foundational. A community that supports, educates, and grows each other.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">The Business Vision</div>
+      <div class="vm-item-text">A compounding, largely automated income ecosystem where wellness content generates product customers, customers generate associates, associates generate network income, and the flywheel runs with minimal direct effort — because the content engine never stops.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">The Impact Vision</div>
+      <div class="vm-item-text">Every person, regardless of their city, language, or income level, has access to the same quality of wellness education and the same opportunity to earn from sharing it. OJAS WAY is the great equalizer in Indian wellness.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── V. MISSION ──────────────────────────── -->
+<section id="mission" class="reveal">
+  <span class="section-num">V</span>
+  <div class="section-label">Mission</div>
+  <h2 class="section-title">How We <em>Get There</em></h2>
+  <div class="vm-statement">
+    To create <em>content-first, community-driven, deeply authentic</em> wellness education that makes Ayurvedic wisdom accessible, desirable, and actionable for every Indian — and builds a compounding, automated business ecosystem that turns that trust into income.
+  </div>
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+  <div class="vm-breakdown">
+    <div class="vm-item">
+      <div class="vm-item-title">Content-First</div>
+      <div class="vm-item-text">We earn the right to sell by first earning the right to educate. Every piece of content we create shifts perspective before it promotes anything. Our content library is the most important asset we own.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">Community-Driven</div>
+      <div class="vm-item-text">We do not build an audience — we build a community. The WhatsApp communities, the YouTube comment sections, the Instagram DMs — these are relationships, not metrics. Communities convert. Audiences scroll past.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">Deeply Authentic</div>
+      <div class="vm-item-text">Five years of family use. Real testimonials. Real transformations. We only recommend what we genuinely believe in. Authenticity is not a marketing strategy — it is our fundamental competitive advantage.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">Accessible to All</div>
+      <div class="vm-item-text">Trilingual. Affordable products. A business model with zero or minimal barrier to entry. OJAS WAY is for every Indian, not just the English-speaking urban elite. This is a non-negotiable.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">Automated at Scale</div>
+      <div class="vm-item-text">AI agents, Manychat automations, WhatsApp follow-up sequences — the machine must be built to run with minimal manual intervention so that income compounds without proportional effort from a single person.</div>
+    </div>
+    <div class="vm-item">
+      <div class="vm-item-title">Compounding by Design</div>
+      <div class="vm-item-text">YouTube videos that generate leads for 5 years. WhatsApp communities that grow through referrals. Content that builds brand equity permanently. Every action taken today must compound in value over time, not just generate short-term traffic.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VI. BRAND VALUES ─────────────────────── -->
+<section id="values" class="reveal">
+  <span class="section-num">VI</span>
+  <div class="section-label">Brand Values & Pillars</div>
+  <h2 class="section-title">What We <em>Stand For</em></h2>
+  <p class="section-intro">These five values are not aspirational statements on a wall. They are decision-making tools. When anyone on this team is uncertain about a direction, a piece of content, or a business decision — they come back to these five values. If it violates even one, we don't do it.</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="val-num">01</div>
+      <div class="val-name">Ojas First</div>
+      <div class="val-tagline">"We genuinely believe in what we teach."</div>
+      <div class="val-desc">We will never recommend something we haven't used, tested, or genuinely believe in. Our family's five years of experience with IMC products is not a marketing asset — it is our moral authority to speak. The moment we start promoting something purely for commission, we have betrayed this value and everything the brand is built on.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">02</div>
+      <div class="val-name">Authenticity Over Performance</div>
+      <div class="val-tagline">"Real stories. Real results. Real people."</div>
+      <div class="val-desc">In a content landscape full of filters, paid promotions, and manufactured authority, radical authenticity is our competitive moat. We show real journeys. We share setbacks alongside successes. We do not perform wellness — we live it. Our audience will forgive imperfection. They will never forgive inauthenticity.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">03</div>
+      <div class="val-name">Accessibility Without Compromise</div>
+      <div class="val-tagline">"Ancient wisdom for every Indian — not just the privileged."</div>
+      <div class="val-desc">Quality wellness education in three languages. Affordable products that work. A business model with a low barrier to entry. We will never let premium positioning exclude the people who need this the most. Being aspirational and being accessible are not opposites — they are exactly what OJAS WAY proves possible together.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">04</div>
+      <div class="val-name">Science Meets Tradition</div>
+      <div class="val-tagline">"5,000 years of wisdom. Modern evidence."</div>
+      <div class="val-desc">We do not ask our audience to choose between Ayurveda and modern science — we show them they do not have to. Where research validates Ayurvedic practice, we use it. Where traditional practice has stood the test of millennia, we respect it. We are not anti-modern. We are pro-integration. This is what makes our content credible.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">05</div>
+      <div class="val-name">Community as the Asset</div>
+      <div class="val-tagline">"The brand is the relationships we build."</div>
+      <div class="val-desc">Algorithms change. Platforms die. Communities endure. The WhatsApp groups, the YouTube comment sections, the DMs, the testimonials — these are not vanity metrics. They are the actual business. Every piece of content we make, every product we recommend, every associate we recruit is building a community of people who trust OJAS WAY with their health. That trust is the brand.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VII. TARGET AUDIENCE ──────────────────── -->
+<section id="audience" class="reveal">
+  <span class="section-num">VII</span>
+  <div class="section-label">Target Audience</div>
+  <h2 class="section-title">Who We're <em>Talking To</em></h2>
+  <p class="section-intro">OJAS WAY serves four distinct audience personas. Every piece of content, every funnel, every product recommendation, and every community touchpoint should have one of these four people in mind. Understanding them deeply is not optional — it is the entire content strategy.</p>
+  <div class="audience-grid">
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-tag">Persona 01 · English</div>
+        <div class="persona-name">The Urban Striver</div>
+        <div class="persona-desc">25–34, metro city, corporate or startup professional</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <span class="pr-label">Profile</span>
+          <span class="pr-value">Software engineer, marketing manager, consultant. Earns well. Busy. Owns a gym membership they rarely use. Eats reasonably well but inconsistently. Has health anxiety but no time to act on it.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Pain Point</span>
+          <span class="pr-value">Chronically tired, poor digestion, low immunity, brain fog, stress-related skin or gut issues. Knows something is wrong but doesn't know what to change.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Content Hook</span>
+          <span class="pr-value">"The science behind why you're always tired" — Clinical, credible, modern explanations with Ayurvedic solutions. They want to be convinced, not lectured.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Convert Via</span>
+          <span class="pr-value">Problem → solution content on Instagram/YouTube. Lead magnet (free guide). WhatsApp community for daily wellness nudges. Product recommendation once trust is built.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Language</span>
+          <span class="pr-value">English primary. Clean, intelligent, witty. No jargon without explanation. Cite research. Show before/after results.</span>
+        </div>
+      </div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-tag">Persona 02 · Hindi</div>
+        <div class="persona-name">The Aspirational Indian</div>
+        <div class="persona-desc">22–32, tier-1/2 city, student or early career</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <span class="pr-label">Profile</span>
+          <span class="pr-value">College student, entry-level professional, small business owner family. Watches a lot of content. Culturally proud but wants to be "modern." Spending power is growing but cost-conscious.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Pain Point</span>
+          <span class="pr-value">Wants to be healthy but thinks it's expensive or complicated. Family uses traditional remedies but they've never been told why they work. Disconnected from wellness culture.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Content Hook</span>
+          <span class="pr-value">"Dadi ka nuskha, science se prove hua" — connecting ancestral wisdom to modern validation. Relatable, warm storytelling. Makes them feel proud of their roots.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Convert Via</span>
+          <span class="pr-value">Emotional storytelling reels. Hindi YouTube explainers. WhatsApp community with daily tips. Low-cost entry product. Business opportunity messaging for those interested in earning.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Language</span>
+          <span class="pr-value">Conversational Hindi. Warm. Desi references. Humor. The tone of a knowledgeable older sibling sharing a secret.</span>
+        </div>
+      </div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-tag">Persona 03 · Telugu</div>
+        <div class="persona-name">The Rooted Family Member</div>
+        <div class="persona-desc">28–45, Hyderabad / AP / Telangana, family-oriented</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <span class="pr-label">Profile</span>
+          <span class="pr-value">Middle-class professional or homemaker. Family is the decision filter for everything. Trusts word-of-mouth above all else. Looking for things that work for the whole family, not just themselves.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Pain Point</span>
+          <span class="pr-value">Wants safe, affordable, effective health solutions for their family. Skeptical of supplements but open to natural products. Has seen family members use IMC products (or similar) and wants to understand more.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Content Hook</span>
+          <span class="pr-value">"Family ki health, mana teerika" — community-led testimonials, family transformation stories, products that work for children and elderly too. Trust by proximity.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Convert Via</span>
+          <span class="pr-value">WhatsApp community first. Personal testimonials from similar families. Telugu-language product explainer content. Referral-based business opportunity when trust is established.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Language</span>
+          <span class="pr-value">Telugu — direct, warm, community-first. Like talking to a trusted neighbor. No corporate-speak. Human and personal at all times.</span>
+        </div>
+      </div>
+    </div>
+    <div class="persona-card">
+      <div class="persona-header">
+        <div class="persona-tag">Persona 04 · Income</div>
+        <div class="persona-name">The Income Seeker</div>
+        <div class="persona-desc">25–45, homemaker, teacher, employee, small business owner, side-hustle seeker</div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-row">
+          <span class="pr-label">Profile</span>
+          <span class="pr-value">Homemaker, teacher, employee, small business owner, or side-hustle seeker. Responsible, practical, and quietly ambitious. They are not looking for hype — they are looking for a credible path that fits around real life.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Pain Point</span>
+          <span class="pr-value">Income stagnation. Their expenses are rising faster than their earning power, and they want a way to grow without compromising family, dignity, or values.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Desires</span>
+          <span class="pr-value">Additional ₹10,000–₹50,000 monthly. Flexible work. Meaningful work. Growth. Mentorship. A community where learning is practical and progress feels possible.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Content Hook</span>
+          <span class="pr-value">"How ordinary people build an additional income stream through wellness education." Practical, grounded, and proof-led — never exaggerated, never income-claim heavy.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Conversion Path</span>
+          <span class="pr-value">Free mentorship → Community → Associate. They convert through proximity to people who teach generously, answer clearly, and model a professional way to build.</span>
+        </div>
+        <div class="persona-row">
+          <span class="pr-label">Language Style</span>
+          <span class="pr-value">Practical. Hopeful. Professional. Speak to their intelligence and their responsibilities. Avoid fantasy language, pressure, and exaggerated promises.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIII. BRAND VOICE ──────────────────────── -->
+<section id="voice" class="reveal">
+  <span class="section-num">VIII</span>
+  <div class="section-label">Brand Voice & Aesthetic</div>
+  <h2 class="section-title">How OJAS WAY <em>Speaks</em></h2>
+  <p class="section-intro">The voice is the brand. Before a single product is recommended or a business opportunity pitched, the voice is what people decide to trust or scroll past. OJAS WAY's voice is educated but not elitist, warm but not soft, bold but not aggressive. It is the voice of someone who knows something important and wants to share it without performing authority.</p>
+  <div class="voice-grid">
+    <div class="voice-card yes">
+      <div class="voice-title yes">✦ We Speak Like This</div>
+      <ul class="voice-list">
+        <li>Direct and confident — we know what we know and say it clearly</li>
+        <li>Curious and educational — we explain the why, not just the what</li>
+        <li>Warm and human — every caption and script should feel like it was written by a person, not a brand</li>
+        <li>Culturally rooted — reference Indian life, Indian contexts, Indian problems</li>
+        <li>Modern and cinematic — premium aesthetic, high production intent, clean and sharp</li>
+        <li>Empowering — we tell people what they can do, not what they're doing wrong</li>
+        <li>Specific — name the problem, name the product, name the result</li>
+      </ul>
+    </div>
+    <div class="voice-card no">
+      <div class="voice-title no">✕ We Never Speak Like This</div>
+      <ul class="voice-list">
+        <li>Promotional first — leading with a product before building context</li>
+        <li>Fake urgency — "LIMITED TIME OFFER" energy has no place here</li>
+        <li>Overpromising — we do not make health claims we cannot stand behind</li>
+        <li>Preachy or guilt-inducing — never shame anyone for their habits</li>
+        <li>Generic wellness — "drink water, sleep 8 hours" content that adds zero value</li>
+        <li>MLM-coded — phrases like "join my team," "amazing opportunity," "financial freedom" are banned</li>
+        <li>Translated rather than adapted — direct translations lose all personality</li>
+      </ul>
+    </div>
+  </div>
+  <table class="lang-table mt-lg">
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Audience Energy</th>
+        <th>Tone Direction</th>
+        <th>Avoid</th>
+        <th>Content Format Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>English</strong></td>
+        <td>Aspirational, health-curious, evidence-driven</td>
+        <td>Clean, credible, intelligent. Like a premium wellness brand meets trusted friend</td>
+        <td>Jargon, condescension, over-simplification</td>
+        <td>Long-form carousels, YouTube education, newsletter-style captions</td>
+      </tr>
+      <tr>
+        <td><strong>Hindi</strong></td>
+        <td>Emotionally driven, desi-pride, family-oriented</td>
+        <td>Warm, relatable, storytelling-first. Like a wise elder sibling, never preachy</td>
+        <td>Corporate stiffness, Western wellness references, MLM vocabulary</td>
+        <td>Short reels, emotional storytelling, family health tips</td>
+      </tr>
+      <tr>
+        <td><strong>Telugu</strong></td>
+        <td>Community-first, trust-driven, direct</td>
+        <td>Personal, neighborly, direct. Like talking to someone in your own living room</td>
+        <td>Formal speech, distant tone, any language that sounds "salesy"</td>
+        <td>Testimonials, WhatsApp content, family transformation stories</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pull-quote mt-lg">
+    <p>"The OJAS WAY voice makes a 55-year-old mother in Warangal and a 26-year-old engineer in Bengaluru both feel like this brand was made exactly for them. That's the standard we hold."</p>
+  </div>
+</section>
+
+<!-- ── IX. CONTENT ARCHITECTURE ──────────────── -->
+<section id="content" class="reveal">
+  <span class="section-num">IX</span>
+  <div class="section-label">Content Architecture</div>
+  <h2 class="section-title">The <em>Three-Layer</em> System</h2>
+  <p class="section-intro">Every single piece of content OJAS WAY creates lives in one of three layers. This is not a suggestion — it is the operating system. Each layer has a specific purpose, a specific audience mindset, and a specific conversion goal. Never mix layers in a single piece of content. The system works because it respects the journey.</p>
+  <div class="layers">
+    <div class="layer">
+      <div class="layer-id">
+        <div class="layer-num">01</div>
+        <div class="layer-name">Awareness</div>
+        <div class="layer-goal">The Problem Layer</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-q">"Why do you feel this way?"</div>
+        <div class="layer-desc">Content that names the problem before offering any solution. Zero product mentions. Zero business opportunity. Pure perspective shift. This layer earns the right for everything that follows. It stops the scroll by saying something the audience has felt but never heard articulated so well. This is your broadest, most shareable content — the content that builds followers and brand authority simultaneously.</div>
+        <div class="layer-examples">
+          <span class="ex-tag">Why you're always tired (Ayurveda explains)</span>
+          <span class="ex-tag">What is Ojas — and why yours is depleted</span>
+          <span class="ex-tag">The one thing your gut is trying to tell you</span>
+          <span class="ex-tag">Immunity doesn't come from supplements</span>
+          <span class="ex-tag">Why stress hits you harder at 28 than it did at 22</span>
+        </div>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-id">
+        <div class="layer-num">02</div>
+        <div class="layer-name">Education</div>
+        <div class="layer-goal">The Framework Layer</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-q">"Here is what to do about it."</div>
+        <div class="layer-desc">Content that teaches the Ayurvedic framework — principles, habits, rituals, seasonal practices, and specific remedies for specific problems. Products can appear here organically and naturally as part of a genuine recommendation, not a pitch. This is where the family's five years of product use and personal testimonials live. This layer converts curious scrollers into engaged community members who trust OJAS WAY's judgment.</div>
+        <div class="layer-examples">
+          <span class="ex-tag">5 morning habits that rebuild immunity</span>
+          <span class="ex-tag">What to eat according to your Prakriti</span>
+          <span class="ex-tag">How Tulsi changed my dad's health in 60 days</span>
+          <span class="ex-tag">The Dinacharya routine that actually fits modern life</span>
+          <span class="ex-tag">Ayurvedic approach to seasonal allergies</span>
+        </div>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-id">
+        <div class="layer-num">03</div>
+        <div class="layer-name">Conversion</div>
+        <div class="layer-goal">The Solution Layer</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-q">"Here is exactly what we use — and how you can too."</div>
+        <div class="layer-desc">Content that directly recommends specific products, shares the business model with interested audience members, and drives clear CTAs. This layer is earned — it only works because Layers 01 and 02 have built trust. The conversion layer is never more than 20% of total content volume. It should feel like a natural conclusion to everything that came before — not an interruption. The IMC business opportunity is presented here as well, but only to those who have already experienced product results.</div>
+        <div class="layer-examples">
+          <span class="ex-tag">The 3 products we've used for 5 years — honest review</span>
+          <span class="ex-tag">DM "OJAS" for our complete starter routine</span>
+          <span class="ex-tag">How I earn from sharing something I already believe in</span>
+          <span class="ex-tag">Our family's 5-year IMC products review</span>
+          <span class="ex-tag">Want the routine + products? Full breakdown in my WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-lg">
+    <div class="section-label">Content Ratio</div>
+    <p class="section-intro" style="margin-bottom:24px">The 60–20–20 rule governs everything. No exceptions in the first year.</p>
+    <div class="overview-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="overview-card" style="text-align:center">
+        <div style="font-family:var(--fd);font-size:3.5rem;font-weight:300;color:var(--gold);margin-bottom:8px">60%</div>
+        <div class="ov-title" style="margin-bottom:8px">Layer 1 — Awareness</div>
+        <div class="ov-content">Broad, educational, shareable content that builds the brand. No product. No pitch.</div>
+      </div>
+      <div class="overview-card" style="text-align:center">
+        <div style="font-family:var(--fd);font-size:3.5rem;font-weight:300;color:var(--cream2);margin-bottom:8px">20%</div>
+        <div class="ov-title" style="margin-bottom:8px">Layer 2 — Education</div>
+        <div class="ov-content">Framework content with natural product appearances. Builds trust and qualified intent.</div>
+      </div>
+      <div class="overview-card" style="text-align:center">
+        <div style="font-family:var(--fd);font-size:3.5rem;font-weight:300;color:var(--saffron);margin-bottom:8px">20%</div>
+        <div class="ov-title" style="margin-bottom:8px">Layer 3 — Conversion</div>
+        <div class="ov-content">Direct product and opportunity content. Only to warm audiences who are ready.</div>
+      </div>
+    </div>
+  </div>
+  <div class="core-question">
+    <div class="strategy-kicker">The Core Question</div>
+    <div class="question">"How does this move a stranger one step closer to becoming a lead?"</div>
+    <div class="strategy-copy" style="margin-bottom:28px">Every piece of content must answer this before it is published. Views are not assets. Followers are not assets. Leads are assets. Trust converts strangers into leads. Leads become customers. Customers become associates. Associates become leaders. Leaders create leverage.</div>
+    <div class="answer">
+      <div class="answer-step">Trust</div>
+      <div class="answer-step">Lead</div>
+      <div class="answer-step">Customer</div>
+      <div class="answer-step">Associate</div>
+      <div class="answer-step">Leader</div>
+      <div class="answer-step">Leverage</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── X. LEAD MAGNET ECOSYSTEM ───────────────── -->
+<section id="lead-magnets" class="reveal">
+  <span class="section-num">X</span>
+  <div class="section-label">Lead Magnet Ecosystem</div>
+  <h2 class="section-title">Turning <em>Attention</em> Into Owned Contacts</h2>
+  <p class="section-intro">Content alone is not enough. Content earns attention, but attention disappears unless it is converted into a relationship OJAS WAY owns. The job of every high-performing content pillar is to move the right person into the right lead magnet, capture consent-based contact details, and begin a nurture journey that feels educational before it ever feels commercial.</p>
+
+  <div class="lead-grid">
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-num">Lead Magnet 01</div>
+        <div class="lead-name">7-Day Ayurvedic Reset</div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-row">
+          <div class="lead-label">Purpose</div>
+          <div class="lead-value">Give beginners a structured, low-friction introduction to daily Ayurvedic habits that create visible momentum in one week.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Audience</div>
+          <div class="lead-value">Health-curious followers with fatigue, poor sleep, low immunity, or general lifestyle overwhelm.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Expected Outcome</div>
+          <div class="lead-value">They experience quick wins, understand the OJAS WAY approach, and become receptive to deeper community education.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Conversion Goal</div>
+          <div class="lead-value">Move from Instagram or YouTube into the email list and WhatsApp wellness community.</div>
+        </div>
+      </div>
+    </div>
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-num">Lead Magnet 02</div>
+        <div class="lead-name">Morning Energy Ritual Guide</div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-row">
+          <div class="lead-label">Purpose</div>
+          <div class="lead-value">Create a practical daily ritual for people who wake up tired, depend on caffeine, and want natural energy without complexity.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Audience</div>
+          <div class="lead-value">Urban strivers, students, employees, and homemakers who want a routine they can start tomorrow morning.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Expected Outcome</div>
+          <div class="lead-value">They associate OJAS WAY with immediate usefulness and begin to trust the brand's product recommendations around energy and immunity.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Conversion Goal</div>
+          <div class="lead-value">Trigger a 7-day email sequence that educates on ojas, digestion, sleep, and product-supported routines.</div>
+        </div>
+      </div>
+    </div>
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-num">Lead Magnet 03</div>
+        <div class="lead-name">Energy &amp; Digestion Assessment</div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-row">
+          <div class="lead-label">Purpose</div>
+          <div class="lead-value">Segment leads by symptom pattern so follow-up content and product education can feel specific instead of generic.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Audience</div>
+          <div class="lead-value">People with persistent fatigue, bloating, acidity, irregular appetite, sluggishness, or stress-related gut issues.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Expected Outcome</div>
+          <div class="lead-value">They receive a simple educational profile and feel understood before any product is mentioned.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Conversion Goal</div>
+          <div class="lead-value">Route them into the right nurture track and prepare a specific, problem-led product recommendation.</div>
+        </div>
+      </div>
+    </div>
+    <div class="lead-card">
+      <div class="lead-header">
+        <div class="lead-num">Lead Magnet 04</div>
+        <div class="lead-name">Build a Wellness Income Stream</div>
+      </div>
+      <div class="lead-body">
+        <div class="lead-row">
+          <div class="lead-label">Purpose</div>
+          <div class="lead-value">Introduce the income opportunity through education, credibility, and mentorship — not hype or exaggerated promises.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Audience</div>
+          <div class="lead-value">Income seekers, product believers, homemakers, teachers, employees, and side-hustle seekers who want meaningful flexible work.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Expected Outcome</div>
+          <div class="lead-value">They understand the professional path: learn the wellness system, join the community, attend mentorship, then decide with clarity.</div>
+        </div>
+        <div class="lead-row">
+          <div class="lead-label">Conversion Goal</div>
+          <div class="lead-value">Move qualified prospects into free mentorship and, when ready, into the associate pathway.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="asset-note">
+    <div class="asset-note-title">Every lead magnet collects owned contact data.</div>
+    <div class="strategy-copy">The guide is the gift. The contact record is the business asset. Every opt-in must clearly collect consent and store the three fields OJAS WAY needs to nurture, segment, and convert with discipline.</div>
+    <div class="asset-fields">
+      <div class="asset-field">Name</div>
+      <div class="asset-field">Email</div>
+      <div class="asset-field">WhatsApp Number</div>
+    </div>
+    <div class="strategy-copy">These are not vanity metrics. These are business assets.</div>
+  </div>
+</section>
+
+<!-- ── XI. EMAIL AS A BUSINESS ASSET ──────────── -->
+<section id="email-asset" class="reveal">
+  <span class="section-num">XI</span>
+  <div class="section-label">The Most Valuable Asset We Own</div>
+  <h2 class="section-title">The OJAS WAY <em>Knowledge Letter</em></h2>
+  <p class="section-intro">Social platforms are rented land. Email is owned land. Instagram can disappear. Facebook can change. Algorithms can collapse. Email remains. The long-term OJAS WAY asset is not a marketing newsletter — it is the OJAS WAY Knowledge Letter: a weekly, trust-building education channel that reaches people directly, without asking an algorithm for permission.</p>
+
+  <div class="comparison-grid">
+    <div class="comparison-card">
+      <div class="comparison-title">Social Media</div>
+      <div class="comparison-role">Rented attention</div>
+      <ul class="comparison-list">
+        <li>Reach is controlled by platforms, not by OJAS WAY.</li>
+        <li>Followers may never see the most important content.</li>
+        <li>Algorithm shifts can reduce distribution overnight.</li>
+        <li>Content is powerful for discovery, but weak as a long-term contact asset.</li>
+      </ul>
+    </div>
+    <div class="comparison-card owned">
+      <div class="comparison-title">Email</div>
+      <div class="comparison-role">Owned relationship</div>
+      <ul class="comparison-list">
+        <li>Subscribers can be reached directly every week.</li>
+        <li>Education can be deeper, calmer, and more sequential.</li>
+        <li>The list can be segmented by health need, language, and interest.</li>
+        <li>Email becomes the bridge between content and conversion.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metric-equation">
+    <div class="metric-piece">
+      <span class="metric-number">10,000</span>
+      <div class="metric-label">Subscribers</div>
+    </div>
+    <div class="metric-op">×</div>
+    <div class="metric-piece">
+      <span class="metric-number">30%</span>
+      <div class="metric-label">Open Rate</div>
+    </div>
+    <div class="metric-op">=</div>
+    <div class="metric-piece">
+      <span class="metric-number">3,000</span>
+      <div class="metric-label">Weekly Readers</div>
+    </div>
+  </div>
+
+  <div class="pull-quote mt-lg">
+    <p>"A weekly email read by 3,000 people is not a newsletter. It is a private education channel, a trust compounding engine, and the most durable conversion asset OJAS WAY owns."</p>
+  </div>
+</section>
+
+<!-- ── XII. PLATFORM STRATEGY ─────────────────── -->
+<section id="platforms" class="reveal">
+  <span class="section-num">XII</span>
+  <div class="section-label">Platform Strategy</div>
+  <h2 class="section-title">Where We <em>Show Up</em></h2>
+  <p class="section-intro">Every platform in our ecosystem has a specific, non-overlapping job. The mistake most brands make is repurposing content identically across all platforms. We adapt — the idea stays consistent, the format, tone, and depth change completely.</p>
+  <div class="platform-grid">
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-name">Instagram</div>
+        <div class="platform-role">Top-of-Funnel · Awareness · Community</div>
+      </div>
+      <div class="platform-body">
+        <div class="plat-row">
+          <div class="plat-label">Primary Role</div>
+          <div class="plat-val">Brand discovery engine. The place new audiences find OJAS WAY for the first time. Drive follows, saves, and shares above all else.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Content Types</div>
+          <div class="plat-val">Reels (primary), Carousels (education), Stories (community + conversion), Close Friends (VIP community), Highlights (evergreen resources)</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Tone</div>
+          <div class="plat-val">Visually striking. Bold captions. Cultural references. Pattern interrupts. Cinematic reels with tight editing and resonant music.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Lead Mechanism</div>
+          <div class="plat-val">Manychat DM automation triggered by keyword comments ("OJAS"). Delivers lead magnet, redirects to WhatsApp community.</div>
+        </div>
+        <div class="plat-kpi">
+          <div>
+            <div class="plat-kpi-label">6-Month Target</div>
+            <div class="plat-kpi-val">5,000 Followers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-name">YouTube</div>
+        <div class="platform-role">Long-Term Asset · Education · Search</div>
+      </div>
+      <div class="platform-body">
+        <div class="plat-row">
+          <div class="plat-label">Primary Role</div>
+          <div class="plat-val">The most important long-term asset in this plan. A single well-optimized YouTube video generates leads for 3–5 years. This is where you build permanent brand equity that no algorithm change can erase.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Content Types</div>
+          <div class="plat-val">Long-form education (8–20 min), YouTube Shorts (repurposed Reels), Explainer series (Ayurveda 101), Product reviews, Personal journey vlogs</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">SEO Strategy</div>
+          <div class="plat-val">Optimize for high-search Ayurveda and wellness queries in English and Hindi. Title format: "How to [solve problem] — The Ayurvedic Way"</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Lead Mechanism</div>
+          <div class="plat-val">WhatsApp Community link in description. Lead magnet offer in video. End screen CTA with clickable WhatsApp redirect.</div>
+        </div>
+        <div class="plat-kpi">
+          <div>
+            <div class="plat-kpi-label">6-Month Target</div>
+            <div class="plat-kpi-val">1,000 Subscribers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-name">Facebook</div>
+        <div class="platform-role">Community Depth · Regional Reach · 30–50 Age</div>
+      </div>
+      <div class="platform-body">
+        <div class="plat-row">
+          <div class="plat-label">Primary Role</div>
+          <div class="plat-val">Reaches the 30–50 demographic that doesn't live on Instagram. Especially effective for Telugu and Hindi audiences. Facebook Groups create deep community engagement.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Content Types</div>
+          <div class="plat-val">Facebook Group (OJAS WAY Community), Page posts (repurposed from Instagram), Facebook Reels, Long-form health articles, Community discussion posts</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Unique Play</div>
+          <div class="plat-val">Run a private Facebook Group as a complementary community to WhatsApp. Older demographics feel more comfortable in Facebook Groups. Use for deeper education and testimonial sharing.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Lead Mechanism</div>
+          <div class="plat-val">Group membership as an entry point. Nurture within group. WhatsApp redirect for product inquiries.</div>
+        </div>
+        <div class="plat-kpi">
+          <div>
+            <div class="plat-kpi-label">6-Month Target</div>
+            <div class="plat-kpi-val">2,000 Page Followers + 500 Group Members</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-name">WhatsApp</div>
+        <div class="platform-role">Conversion Engine · Retention · Community</div>
+      </div>
+      <div class="platform-body">
+        <div class="plat-row">
+          <div class="plat-label">Primary Role</div>
+          <div class="plat-val">The conversion and retention engine. This is where audience members become customers, customers become advocates, and advocates become associates. The highest-trust, highest-conversion channel in the entire stack.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Structure</div>
+          <div class="plat-val">OJAS WAY Community (general wellness community), OJAS Business Community (for associate prospects only — separate), WhatsApp Channel for broadcast</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Daily Content</div>
+          <div class="plat-val">Morning wellness tip, product spotlight (2x/week), weekly live Q&A session, community testimonials, product reordering reminders</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Automation</div>
+          <div class="plat-val">Automated onboarding sequence (Day 1–7 welcome messages). Automated follow-up sequences for product inquiries. AI-assisted FAQ responses. Manual intervention for business opportunity conversations only.</div>
+        </div>
+        <div class="plat-kpi">
+          <div>
+            <div class="plat-kpi-label">6-Month Target</div>
+            <div class="plat-kpi-val">500 Community Members</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="platform-header">
+        <div class="platform-name">Email</div>
+        <div class="platform-role">Retention · Deep Education · Conversion Bridge</div>
+      </div>
+      <div class="platform-body">
+        <div class="plat-row">
+          <div class="plat-label">Primary Role</div>
+          <div class="plat-val">Retention. Email keeps OJAS WAY connected to people after the scroll ends and before the buying decision begins.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Purpose</div>
+          <div class="plat-val">Deep education through the OJAS WAY Knowledge Letter — weekly, thoughtful, problem-led guidance that turns curiosity into trust.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Frequency</div>
+          <div class="plat-val">Weekly. One strong knowledge letter every week, supported by short nurture sequences after each lead magnet opt-in.</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-label">Bridge Function</div>
+          <div class="plat-val">Email is the bridge between content and conversion. It moves people from public attention into private education, then into WhatsApp, product recommendations, and mentorship invitations when relevant.</div>
+        </div>
+        <div class="plat-kpi">
+          <div>
+            <div class="plat-kpi-label">Core KPI</div>
+            <div class="plat-kpi-val">Subscriber Growth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── XIII. FUNNEL ARCHITECTURE ──────────────── -->
+<section id="funnels" class="reveal">
+  <span class="section-num">XIII</span>
+  <div class="section-label">Funnel Architecture</div>
+  <h2 class="section-title">The OJAS WAY <em>Growth Engine</em></h2>
+  <p class="section-intro">This is the operating funnel that turns public trust into private relationships, private relationships into product customers, product customers into mentored associates, and mentored associates into network growth. It does not ask cold strangers to buy or join. It moves people one step at a time through education, contact capture, community, proof, recommendation, mentorship, and duplication.</p>
+
+  <div class="engine-panel">
+    <div class="engine-header">
+      <div class="engine-name">The OJAS WAY Growth Engine</div>
+      <div class="engine-sub">One integrated path. Health interest enters first. Trust compounds in the middle. Revenue emerges at the end as a result of education, community, and leadership duplication.</div>
+    </div>
+    <div class="engine-chain">
+      <div class="engine-step">
+        <div class="engine-num">01</div>
+        <div class="engine-copy">
+          <div class="engine-title">Instagram Reel</div>
+          <div class="engine-desc">A problem-led reel names the pain clearly: fatigue, digestion, sleep, stress, immunity, weight, or extra income. The CTA points to a free guide, not a product pitch.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">02</div>
+        <div class="engine-copy">
+          <div class="engine-title">Free Guide</div>
+          <div class="engine-desc">The lead magnet delivers immediate value and collects name, email, and WhatsApp number with clear consent.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">03</div>
+        <div class="engine-copy">
+          <div class="engine-title">Email List</div>
+          <div class="engine-desc">The OJAS WAY Knowledge Letter begins the owned nurture relationship with deeper education and weekly trust-building.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">04</div>
+        <div class="engine-copy">
+          <div class="engine-title">WhatsApp Community</div>
+          <div class="engine-desc">The lead enters a high-trust environment where daily tips, testimonials, Q&amp;A, and real human proximity make the brand tangible.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">05</div>
+        <div class="engine-copy">
+          <div class="engine-title">7-Day Nurture Sequence</div>
+          <div class="engine-desc">A focused sequence teaches the problem, explains the Ayurvedic lens, shares proof, and prepares a relevant recommendation.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">06</div>
+        <div class="engine-copy">
+          <div class="engine-title">Product Recommendation</div>
+          <div class="engine-desc">Only after trust is built, the right product is recommended as the practical tool behind the education.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">07</div>
+        <div class="engine-copy">
+          <div class="engine-title">Customer</div>
+          <div class="engine-desc">The customer receives usage guidance, check-ins, and community support so the first purchase can become a real experience.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">08</div>
+        <div class="engine-copy">
+          <div class="engine-title">Mentorship Invitation</div>
+          <div class="engine-desc">Satisfied customers and income-curious leads are invited into free mentorship, where the opportunity is explained through education and lived proof.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">09</div>
+        <div class="engine-copy">
+          <div class="engine-title">Associate</div>
+          <div class="engine-desc">The associate joins because belief already exists. They enter with product understanding, community context, and mentorship support.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">10</div>
+        <div class="engine-copy">
+          <div class="engine-title">Builder</div>
+          <div class="engine-desc">The associate learns to duplicate the same content, lead magnet, community, nurture, recommendation, and mentorship path in their own circle.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">11</div>
+        <div class="engine-copy">
+          <div class="engine-title">Network Growth</div>
+          <div class="engine-desc">Multiple builders repeat the system, creating a wider community of educated customers and capable associates.</div>
+        </div>
+      </div>
+      <div class="engine-step">
+        <div class="engine-num">12</div>
+        <div class="engine-copy">
+          <div class="engine-title">Recurring Revenue</div>
+          <div class="engine-desc">Revenue compounds through repeat product use, community retention, associate duplication, and leadership development.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strategy-block">
+    <div class="strategy-kicker">The Strategic Equation</div>
+    <div class="journey-flow">
+      <div class="journey-node primary">Content</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Lead</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Community</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Customer</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node">Associate</div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-node primary">Revenue</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── XIV. INTERNAL REVENUE SYSTEM ────────────── -->
+<section id="revenue-system" class="reveal">
+  <span class="section-num">XIV</span>
+  <div class="section-label">Internal Strategic Note</div>
+  <h2 class="section-title">How OJAS WAY Reaches <em>₹1 Lakh Per Month</em></h2>
+  <p class="section-intro">This section is operational, not promotional. ₹1 lakh per month is not treated as a motivational target. It is treated as the output of a repeatable system: content creates education, education creates trust, trust creates leads, leads enter community, community creates customers, customers create associates, associates create duplication, and duplication creates recurring revenue.</p>
+
+  <div class="revenue-grid">
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 01</div>
+      <div class="revenue-name">Content</div>
+      <div class="revenue-desc">Publish problem-led education consistently across priority platforms. The goal is not virality alone — it is qualified attention from people with a real need.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 02</div>
+      <div class="revenue-name">Lead Generation</div>
+      <div class="revenue-desc">Convert attention into owned contacts through lead magnets, assessments, email opt-ins, WhatsApp entry points, and clean consent-based capture.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 03</div>
+      <div class="revenue-name">Community</div>
+      <div class="revenue-desc">Use WhatsApp and email to deepen belief through daily education, proof, discussion, and relevant follow-up. Community is where cold attention becomes warm trust.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 04</div>
+      <div class="revenue-name">Customers</div>
+      <div class="revenue-desc">Recommend products only after the problem is understood and trust exists. The recommendation should feel like the next practical step, not a sales interruption.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 05</div>
+      <div class="revenue-name">Associates</div>
+      <div class="revenue-desc">Invite customers and income seekers into free mentorship. The goal is to create educated, ethical, supported associates who understand the mission before they build.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 06</div>
+      <div class="revenue-name">Leadership Duplication</div>
+      <div class="revenue-desc">Train associates to repeat the system: educate first, capture leads, build community, recommend responsibly, and invite through mentorship.</div>
+    </div>
+    <div class="revenue-card">
+      <div class="revenue-stage">Stage 07</div>
+      <div class="revenue-name">Recurring Revenue</div>
+      <div class="revenue-desc">Stabilize monthly income through repeat product usage, reorder systems, active associates, and leaders who can duplicate without constant founder involvement.</div>
+    </div>
+  </div>
+
+  <div class="logic-chain">
+    <div class="logic-line">Revenue is the result of <em>trust</em>.<br>Trust is the result of <em>education</em>.<br>Education is the result of <em>content</em>.</div>
+  </div>
+</section>
+
+<!-- ── XV. GROWTH GOALS ───────────────────────── -->
+<section id="goals" class="reveal">
+  <span class="section-num">XV</span>
+  <div class="section-label">Growth Goals</div>
+  <h2 class="section-title">The <em>Road Map</em></h2>
+  <p class="section-intro">Three distinct phases of growth — each with specific metrics, key actions, and a clear definition of what "on track" looks like. These numbers are ambitious but achievable. The difference between hitting them and missing them is the consistent daily execution of the content and funnel system above.</p>
+  <div class="strategy-block" style="margin-top:0;margin-bottom:56px">
+    <div class="strategy-kicker">Growth Hierarchy</div>
+    <div class="strategy-title">The order cannot be reversed.</div>
+    <div class="strategy-copy">OJAS WAY does not chase reach first. It earns trust first. Reach becomes valuable only after the system underneath it can convert attention into community, community into associates and customers, and those relationships into durable revenue.</div>
+    <div class="hierarchy-stack">
+      <div class="hierarchy-node primary">Trust</div>
+      <div class="hierarchy-down">↓</div>
+      <div class="hierarchy-node">Community</div>
+      <div class="hierarchy-down">↓</div>
+      <div class="hierarchy-node">Associates</div>
+      <div class="hierarchy-down">↓</div>
+      <div class="hierarchy-node">Customers</div>
+      <div class="hierarchy-down">↓</div>
+      <div class="hierarchy-node">Revenue</div>
+      <div class="hierarchy-down">↓</div>
+      <div class="hierarchy-node primary">Reach</div>
+    </div>
+  </div>
+  <div class="goals-timeline">
+
+    <div class="goal-block">
+      <div class="goal-header">
+        <div>
+          <div class="goal-period">Phase 01 · Months 1–6</div>
+          <div class="goal-title">Short-Term</div>
+        </div>
+        <div class="goal-phase">"Build the Foundation. Validate the System."</div>
+      </div>
+      <div class="goal-body">
+        <div class="goal-col">
+          <div class="goal-col-title">Metrics to Hit</div>
+          <ul class="goal-metrics">
+            <li class="goal-metric"><span class="gm-label">Instagram Followers</span><span class="gm-val">3,000–5,000</span></li>
+            <li class="goal-metric"><span class="gm-label">YouTube Subscribers</span><span class="gm-val">500–1,000</span></li>
+            <li class="goal-metric"><span class="gm-label">Facebook Page Likes</span><span class="gm-val">1,000–2,000</span></li>
+            <li class="goal-metric"><span class="gm-label">WhatsApp Community</span><span class="gm-val">300–500 Members</span></li>
+            <li class="goal-metric"><span class="gm-label">Product Customers</span><span class="gm-val">30–50</span></li>
+            <li class="goal-metric"><span class="gm-label">IMC Associates Recruited</span><span class="gm-val">10–20</span></li>
+            <li class="goal-metric"><span class="gm-label">Content Published</span><span class="gm-val">60–80 Pieces</span></li>
+            <li class="goal-metric"><span class="gm-label">Monthly Commission Income</span><span class="gm-val">₹10,000–₹40,000</span></li>
+          </ul>
+        </div>
+        <div class="goal-col">
+          <div class="goal-col-title">Key Actions This Phase</div>
+          <ul class="goal-actions">
+            <li class="goal-action">Set up all platforms and claim @ojas.life handles immediately</li>
+            <li class="goal-action">Document 30-day product experience as content foundation</li>
+            <li class="goal-action">Produce and publish 3–4 content pieces per week (Reels + 1 YouTube video biweekly)</li>
+            <li class="goal-action">Set up Manychat keyword automation on Instagram</li>
+            <li class="goal-action">Launch OJAS WAY Wellness WhatsApp Community</li>
+            <li class="goal-action">Build and test lead magnet (Ayurveda starter guide PDF)</li>
+            <li class="goal-action">Run first 20 funnel conversations manually — understand objections before automating</li>
+            <li class="goal-action">Set up WhatsApp Business API for official automation</li>
+            <li class="goal-action">Collect and film 5–10 genuine customer testimonials</li>
+            <li class="goal-action">Define content calendar with all three language tracks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="goal-block">
+      <div class="goal-header">
+        <div>
+          <div class="goal-period">Phase 02 · Months 6–24</div>
+          <div class="goal-title">Mid-Term</div>
+        </div>
+        <div class="goal-phase">"Scale What Works. Automate What's Proven."</div>
+      </div>
+      <div class="goal-body">
+        <div class="goal-col">
+          <div class="goal-col-title">Metrics to Hit</div>
+          <ul class="goal-metrics">
+            <li class="goal-metric"><span class="gm-label">Instagram Followers</span><span class="gm-val">25,000–75,000</span></li>
+            <li class="goal-metric"><span class="gm-label">YouTube Subscribers</span><span class="gm-val">10,000–30,000</span></li>
+            <li class="goal-metric"><span class="gm-label">WhatsApp Community</span><span class="gm-val">2,000–5,000 Members</span></li>
+            <li class="goal-metric"><span class="gm-label">Product Customers</span><span class="gm-val">300–500 Active</span></li>
+            <li class="goal-metric"><span class="gm-label">Active Associates</span><span class="gm-val">50–150</span></li>
+            <li class="goal-metric"><span class="gm-label">Monthly Commission Income</span><span class="gm-val">₹75,000–₹3,00,000</span></li>
+            <li class="goal-metric"><span class="gm-label">Brand Collaborations</span><span class="gm-val">3–5 Deals</span></li>
+            <li class="goal-metric"><span class="gm-label">Funnel Automation</span><span class="gm-val">Fully Operational</span></li>
+          </ul>
+        </div>
+        <div class="goal-col">
+          <div class="goal-col-title">Key Actions This Phase</div>
+          <ul class="goal-actions">
+            <li class="goal-action">Deploy full AI agent workflow (n8n or Make) for WhatsApp lead nurture</li>
+            <li class="goal-action">Build automated associate onboarding sequence (Day 1–60 programme)</li>
+            <li class="goal-action">Invest in production quality — cinematic reels, professional editing, original music</li>
+            <li class="goal-action">Launch Telugu content track as a distinct sub-brand within OJAS WAY</li>
+            <li class="goal-action">Begin YouTube SEO strategy with keyword-optimized long-form content</li>
+            <li class="goal-action">Develop OJAS WAY Associate Training System for downline growth</li>
+            <li class="goal-action">Test paid advertising (Meta Ads) for lead magnet promotion</li>
+            <li class="goal-action">Begin brand partnership outreach with aligned wellness and lifestyle brands</li>
+            <li class="goal-action">Build a content team (editor, Hindi writer, Telugu voiceover talent)</li>
+            <li class="goal-action">Establish monthly live events / webinars for community engagement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="goal-block">
+      <div class="goal-header">
+        <div>
+          <div class="goal-period">Phase 03 · Years 3–10</div>
+          <div class="goal-title">Long-Term</div>
+        </div>
+        <div class="goal-phase">"Become the Face of Indian Wellness."</div>
+      </div>
+      <div class="goal-body">
+        <div class="goal-col">
+          <div class="goal-col-title">Vision Metrics</div>
+          <ul class="goal-metrics">
+            <li class="goal-metric"><span class="gm-label">Instagram Followers</span><span class="gm-val">500K–2M</span></li>
+            <li class="goal-metric"><span class="gm-label">YouTube Subscribers</span><span class="gm-val">200K–1M</span></li>
+            <li class="goal-metric"><span class="gm-label">WhatsApp + Facebook</span><span class="gm-val">50,000+ Members</span></li>
+            <li class="goal-metric"><span class="gm-label">Active Associates</span><span class="gm-val">1,000+</span></li>
+            <li class="goal-metric"><span class="gm-label">Monthly Income</span><span class="gm-val">₹5L–₹25L+</span></li>
+            <li class="goal-metric"><span class="gm-label">Geographic Reach</span><span class="gm-val">Pan-India + Diaspora</span></li>
+            <li class="goal-metric"><span class="gm-label">Brand Equity</span><span class="gm-val">Recognized Media Property</span></li>
+          </ul>
+        </div>
+        <div class="goal-col">
+          <div class="goal-col-title">Strategic Initiatives</div>
+          <ul class="goal-actions">
+            <li class="goal-action">Launch OJAS WAY own product line (white-label Ayurvedic formulations)</li>
+            <li class="goal-action">B2B brand partnership and licensing of content system to other wellness creators</li>
+            <li class="goal-action">Expand to diaspora markets: UAE, UK, USA (large Indian populations)</li>
+            <li class="goal-action">Build OJAS WAY Academy — paid community/education platform for deep wellness learning</li>
+            <li class="goal-action">Produce long-form documentary-style wellness content for YouTube</li>
+            <li class="goal-action">Explore OJAS WAY offline events — wellness retreats, workshops in major cities</li>
+            <li class="goal-action">Negotiate direct brand partnerships with Ayurvedic, food, and wellness companies</li>
+            <li class="goal-action">Develop OJAS WAY as a franchise-able content and community system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── XVI. ROLE GUIDES ────────────────────────── -->
+<section id="roles" class="reveal">
+  <span class="section-num">XVI</span>
+  <div class="section-label">Role Guides</div>
+  <h2 class="section-title">Your <em>Specific</em> Brief</h2>
+  <p class="section-intro">Every person working on OJAS WAY has a specific lens through which to read this brief. These guides translate the brand strategy into role-specific responsibilities, tools, KPIs, and non-negotiables. When in doubt about your specific role, come back here first.</p>
+  <div class="roles-nav">
+    <div class="role-tab active" onclick="showRole('brand')">Brand Strategist</div>
+    <div class="role-tab" onclick="showRole('content-strat')">Content Strategist</div>
+    <div class="role-tab" onclick="showRole('creator')">Content Creator</div>
+    <div class="role-tab" onclick="showRole('marketer')">Marketer</div>
+    <div class="role-tab" onclick="showRole('tech')">Tech Specialist</div>
+  </div>
+
+  <!-- BRAND STRATEGIST -->
+  <div class="role-panel active" id="role-brand">
+    <div class="role-content">
+      <div class="role-intro">
+        <div class="role-left">
+          <div class="role-north">North Star Metric</div>
+          <div class="role-north-val">Brand Differentiation & Positioning Clarity</div>
+          <div style="margin-top:24px;font-family:var(--fm);font-size:0.55rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Tools</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">Brand Bible (this document)<br>Competitor audit frameworks<br>Audience insight tools<br>Monthly brand health checks</div>
+        </div>
+        <div class="role-right">
+          <div class="role-title">Brand Strategist</div>
+          <div class="role-purpose">"Your job is to ensure that everything OJAS WAY does looks, sounds, and feels unmistakably like OJAS WAY — and unlike everyone else in this space."</div>
+          <div class="role-desc">You are the guardian of positioning. When a piece of content goes up that looks like a generic MLM post, you flag it. When someone suggests leading with the IMC branding, you redirect them. When the team drifts from the three-layer content system, you bring them back. You are not the creative director — you are the strategic compass.</div>
+        </div>
+      </div>
+      <div class="role-sections">
+        <div class="role-sec">
+          <div class="role-sec-title">Your Responsibilities</div>
+          <ul class="role-sec-list">
+            <li>Maintain and update this brand brief as the brand evolves</li>
+            <li>Conduct quarterly competitor landscape audits</li>
+            <li>Review all major content formats for brand alignment before publishing</li>
+            <li>Define and evolve the OJAS WAY visual and tone identity</li>
+            <li>Own the narrative framework — ensure every campaign has a story spine</li>
+            <li>Identify positioning opportunities that competitors are missing</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">You Must Never Do</div>
+          <ul class="role-sec-list">
+            <li class="never">Allow any content to lead with IMC branding or product promotion</li>
+            <li class="never">Approve content that makes unverifiable health claims</li>
+            <li class="never">Let "engagement metrics" override brand positioning decisions</li>
+            <li class="never">Dilute the three-language strategy for convenience</li>
+            <li class="never">Copy competitor formats — OJAS WAY leads, never follows</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">Success Looks Like</div>
+          <ul class="role-sec-list">
+            <li>Someone can look at any OJAS WAY content without reading the handle and know it's OJAS WAY</li>
+            <li>The brand occupies a clear, unique position in the Ayurveda/wellness space</li>
+            <li>All team members can articulate the brand positioning without the brief in front of them</li>
+            <li>OJAS WAY is being described by audiences as "different from every other wellness account I've seen"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT STRATEGIST -->
+  <div class="role-panel" id="role-content-strat">
+    <div class="role-content">
+      <div class="role-intro">
+        <div class="role-left">
+          <div class="role-north">North Star Metric</div>
+          <div class="role-north-val">Content System Integrity & Funnel Performance</div>
+          <div style="margin-top:24px;font-family:var(--fm);font-size:0.55rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Tools</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">Notion (content calendar)<br>Instagram Insights<br>YouTube Analytics<br>Manychat Dashboard<br>Google Keyword Planner</div>
+        </div>
+        <div class="role-right">
+          <div class="role-title">Content Strategist</div>
+          <div class="role-purpose">"Your job is to know, before a single video is filmed, exactly what content will move which audience member through which funnel layer — and why."</div>
+          <div class="role-desc">You translate the brand strategy into a working content system. You own the editorial calendar, the 60-20-20 content ratio, the three-layer framework, and the platform-specific strategy. You are not responsible for production — you are responsible for the thinking behind everything that gets produced. Every piece of content should trace back to your strategy.</div>
+        </div>
+      </div>
+      <div class="role-sections">
+        <div class="role-sec">
+          <div class="role-sec-title">Your Responsibilities</div>
+          <ul class="role-sec-list">
+            <li>Own and maintain the monthly content calendar across all three languages and five platforms</li>
+            <li>Define the content ideas for each week — Layer 1, 2, or 3, with specific audience in mind</li>
+            <li>Monitor performance metrics and iterate content strategy based on data</li>
+            <li>Develop and maintain the keyword strategy for YouTube SEO</li>
+            <li>Manage the content pipeline from idea → script → production → publish</li>
+            <li>Ensure the 60-20-20 content ratio is maintained every month</li>
+            <li>Identify trending Ayurveda topics and integrate them into the content calendar</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">You Must Never Do</div>
+          <ul class="role-sec-list">
+            <li class="never">Create content without a clear layer assignment and audience target</li>
+            <li class="never">Allow conversion content to exceed 20% of monthly output</li>
+            <li class="never">Publish without verifying the content works in all three languages</li>
+            <li class="never">Let content strategy be driven by what's trending rather than what serves the funnel</li>
+            <li class="never">Skip the monthly content audit — what worked, what didn't, why</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">Key Metrics You Own</div>
+          <ul class="role-sec-list">
+            <li>Save rate on Instagram (target: above 5%)</li>
+            <li>YouTube average view duration (target: above 50%)</li>
+            <li>Lead magnet opt-in rate from content</li>
+            <li>WhatsApp community growth rate week-over-week</li>
+            <li>Content-to-community conversion rate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT CREATOR -->
+  <div class="role-panel" id="role-creator">
+    <div class="role-content">
+      <div class="role-intro">
+        <div class="role-left">
+          <div class="role-north">North Star Metric</div>
+          <div class="role-north-val">Saves + Shares + Watch Time</div>
+          <div style="margin-top:24px;font-family:var(--fm);font-size:0.55rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Tools</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">CapCut / Premiere Pro<br>Canva Pro<br>iPhone 14+ or DSLR<br>Ring light + natural light<br>Epidemic Sound (music)</div>
+        </div>
+        <div class="role-right">
+          <div class="role-title">Content Creator</div>
+          <div class="role-purpose">"Your job is to make someone stop scrolling, feel something, and want more. Not with tricks — with genuine quality, personality, and the courage to say something real."</div>
+          <div class="role-desc">You are the face and the craft of OJAS WAY. The scripts, the editing, the visual aesthetic, the spoken delivery — that's you. Your single most important asset is authenticity backed by real conviction. The family's 5-year product experience is your content goldmine. Use it constantly. You are not a content machine — you are the reason people trust OJAS WAY with their health.</div>
+        </div>
+      </div>
+      <div class="role-sections">
+        <div class="role-sec">
+          <div class="role-sec-title">Your Responsibilities</div>
+          <ul class="role-sec-list">
+            <li>Produce 3–4 pieces of content per week across platforms (Reels primary)</li>
+            <li>Maintain cinematic visual quality — lighting, framing, editing, music must be intentional</li>
+            <li>Write or review all captions for tone alignment — every caption is brand voice</li>
+            <li>Film and document genuine product experiences, not scripted demonstrations</li>
+            <li>Respond to comments and DMs in the OJAS WAY tone — you are building relationships</li>
+            <li>Maintain a personal content journal — ideas, observations, health experiences</li>
+            <li>Develop on-camera confidence and personal brand simultaneously with OJAS WAY</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">Visual Standards</div>
+          <ul class="role-sec-list">
+            <li>Every Reel should feel like it was made by someone who cares deeply, not produced for volume</li>
+            <li>Natural light is preferred — clinical studio setups feel inauthentic for wellness</li>
+            <li>Use traditional Indian visual elements subtly — not touristy, but rooted</li>
+            <li>Editing rhythm should match the content energy — educational content can be slower; awareness reels should be fast, punchy</li>
+            <li>Sound design matters as much as visuals — choose music that elevates the emotion</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">You Must Never Do</div>
+          <ul class="role-sec-list">
+            <li class="never">Post generic wellness content that says nothing new</li>
+            <li class="never">Use before/after content that promotes unrealistic expectations</li>
+            <li class="never">Mention IMC in the first 10 seconds of any video</li>
+            <li class="never">Make any health claim that cannot be backed by Ayurvedic principle or research</li>
+            <li class="never">Copy another creator's format — OJAS WAY finds its own voice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARKETER -->
+  <div class="role-panel" id="role-marketer">
+    <div class="role-content">
+      <div class="role-intro">
+        <div class="role-left">
+          <div class="role-north">North Star Metric</div>
+          <div class="role-north-val">Cost Per Lead + Subscriber-to-Community Conversion</div>
+          <div style="margin-top:24px;font-family:var(--fm);font-size:0.55rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Tools</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">Meta Business Manager<br>Manychat<br>Email platform / CRM<br>Google Analytics<br>WhatsApp Business API<br>Metabase / Sheets for tracking</div>
+        </div>
+        <div class="role-right">
+          <div class="role-title">Marketer</div>
+          <div class="role-purpose">"Your job is to ensure that the right piece of OJAS WAY content reaches the right person at exactly the right moment in their health journey — and that when they're ready to act, the path is completely frictionless."</div>
+          <div class="role-desc">You own the growth engine — from the first public impression to the email opt-in, WhatsApp community entry, first product purchase, associate invitation, and recurring revenue path. You know exactly how many people entered the system this week, where they dropped off, and what change would fix that. You work at the intersection of content strategy and technology, translating brand intent into measurable, optimizable conversion systems.</div>
+        </div>
+      </div>
+      <div class="role-sections">
+        <div class="role-sec">
+          <div class="role-sec-title">Your Responsibilities</div>
+          <ul class="role-sec-list">
+            <li>Own the OJAS WAY Growth Engine end-to-end — from lead entry to recurring revenue</li>
+            <li>Set up, monitor, and optimize Manychat automation sequences</li>
+            <li>Manage paid media when it is introduced — Meta Ads for lead magnet promotion</li>
+            <li>Build and maintain the analytics dashboard — weekly report to the team</li>
+            <li>A/B test lead magnets, call-to-action language, and follow-up sequences</li>
+            <li>Own the WhatsApp community engagement metrics — track weekly active members</li>
+            <li>Build retargeting sequences for cold leads who didn't convert initially</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">The Growth Paths You Own</div>
+          <ul class="role-sec-list">
+            <li>Instagram organic → Manychat → Lead Magnet → Email List → WhatsApp Community</li>
+            <li>YouTube → Lead Magnet → Email List → Community → Product recommendation</li>
+            <li>WhatsApp Community → Product inquiry → Purchase → Repeat purchase</li>
+            <li>Product customer → Intent signal → Business conversation → Associate</li>
+            <li>Associate → Onboarding → First 10 customers → Network growth</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">You Must Never Do</div>
+          <ul class="role-sec-list">
+            <li class="never">Use unauthorized WhatsApp bulk messaging tools — only WhatsApp Business API</li>
+            <li class="never">Automate the business opportunity conversation — this is always human</li>
+            <li class="never">Optimize for follower count over lead quality</li>
+            <li class="never">Run paid ads before organic funnel is validated and profitable</li>
+            <li class="never">Blur the customer path and associate path before trust is earned</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH SPECIALIST -->
+  <div class="role-panel" id="role-tech">
+    <div class="role-content">
+      <div class="role-intro">
+        <div class="role-left">
+          <div class="role-north">North Star Metric</div>
+          <div class="role-north-val">Funnel Uptime + Automation Accuracy</div>
+          <div style="margin-top:24px;font-family:var(--fm);font-size:0.55rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px">Core Stack</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">n8n / Make (automation)<br>WhatsApp Business API<br>Manychat (IG automation)<br>Notion (operations)<br>Airtable (CRM/leads)<br>Claude API (AI agents)</div>
+        </div>
+        <div class="role-right">
+          <div class="role-title">Tech Specialist</div>
+          <div class="role-purpose">"Your job is to build the machine that turns trust into income — automatically, accurately, and without the human touch being replaced where it matters most."</div>
+          <div class="role-desc">You are the architect of the automation layer. Without your work, OJAS WAY is just a content page with a great strategy but no execution engine. With your work, it becomes a compounding, largely hands-off income system that grows while the content team sleeps. You understand the difference between what should be automated and what must stay human — and you never cross that line.</div>
+        </div>
+      </div>
+      <div class="role-sections">
+        <div class="role-sec">
+          <div class="role-sec-title">Your Responsibilities</div>
+          <ul class="role-sec-list">
+            <li>Build and maintain all Manychat automation flows for Instagram and Facebook</li>
+            <li>Set up and manage the WhatsApp Business API — all official, compliant messaging</li>
+            <li>Build the n8n/Make automation workflows for lead nurture sequences</li>
+            <li>Develop AI agent workflows for intent detection, FAQ responses, and lead qualification</li>
+            <li>Set up the lead database (Airtable or Notion CRM) — every lead tracked, every status updated</li>
+            <li>Build automated associate onboarding sequences (Day 1–60 programme)</li>
+            <li>Monitor all automation uptime and fix failures within 24 hours</li>
+            <li>Ensure full compliance with WhatsApp ToS, India IT Act, and Consumer Protection Rules</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">The Tech Stack Priority Order</div>
+          <ul class="role-sec-list">
+            <li><strong>Phase 1:</strong> Manychat (Instagram DM automation) + WhatsApp Business API + basic lead capture form</li>
+            <li><strong>Phase 2:</strong> n8n workflows for WhatsApp nurture sequences + Airtable CRM</li>
+            <li><strong>Phase 3:</strong> Claude API agents for intent classification + FAQ automation</li>
+            <li><strong>Phase 4:</strong> Full automated onboarding for new IMC associates with content kit delivery</li>
+          </ul>
+        </div>
+        <div class="role-sec">
+          <div class="role-sec-title">You Must Never Do</div>
+          <ul class="role-sec-list">
+            <li class="never">Use unofficial WhatsApp bulk messaging tools — accounts will be banned permanently</li>
+            <li class="never">Scrape contact lists from any source — this is illegal under India's data protection norms</li>
+            <li class="never">Automate business opportunity conversations — they must be human</li>
+            <li class="never">Build automations before the manual version has been tested and validated</li>
+            <li class="never">Store personal data without a clear data retention and deletion policy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role-kpi-row">
+        <div class="kpi-item">
+          <div class="kpi-label">Lead Capture Rate</div>
+          <div class="kpi-metric">Target: 15%+</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Automation Uptime</div>
+          <div class="kpi-metric">Target: 99%+</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Message Open Rate (WhatsApp)</div>
+          <div class="kpi-metric">Target: 70%+</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">Lead-to-Community Conversion</div>
+          <div class="kpi-metric">Target: 60%+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── XVII. THE IMC PARTNERSHIP ────────────────── -->
+<section id="imc" class="reveal">
+  <span class="section-num">XVII</span>
+  <div class="section-label">The IMC Partnership Layer</div>
+  <h2 class="section-title">Where IMC <em>Fits</em></h2>
+  <p class="section-intro">IMC (International Marketing Corporation Pvt. Ltd.) is a legitimate, IDSA-registered direct selling company with a strong Ayurvedic and herbal product portfolio. They are not our identity — they are our first and primary product partner. This distinction is not semantic. It is the entire reason OJAS WAY works.</p>
+  <div class="imc-architecture">
+    <div class="imc-level primary">
+      <div class="imc-level-num">Layer 01</div>
+      <div class="imc-level-name">OJAS WAY</div>
+      <div class="imc-level-role">The Brand, The Media Property, The Trust</div>
+    </div>
+    <div class="imc-level">
+      <div class="imc-level-num">Layer 02</div>
+      <div class="imc-level-name">The Community</div>
+      <div class="imc-level-role">WhatsApp, Instagram, YouTube, Facebook</div>
+    </div>
+    <div class="imc-level secondary">
+      <div class="imc-level-num">Layer 03</div>
+      <div class="imc-level-name">IMC Products</div>
+      <div class="imc-level-role">The Tools. The Solution. The Recommendation.</div>
+    </div>
+  </div>
+  <div class="overview-grid mt-lg">
+    <div class="overview-card">
+      <div class="ov-title">Why IMC Is the Right Partner</div>
+      <div class="ov-content">Five years of family use and real results. A product portfolio that directly maps to the Ayurvedic education we create — Shri Tulsi, Himalayan Berry, Aloe Vera, and more. A legitimate business model with IDSA registration. Products that work across all three audience demographics.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-title">How IMC Products Are Introduced</div>
+      <div class="ov-content">Always as a natural recommendation after trust is built. Never as the opening message. Products are "what we use to achieve the results we teach about" — not "what we are selling." The Ayurveda education comes first; IMC products are the how.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-title">The Business Model — Framed Correctly</div>
+      <div class="ov-content">The associate model is positioned as "earn from sharing something you already believe in" — never as "join my network," "financial freedom," or MLM-coded language. It is an invitation extended only to product believers, never to cold prospects.</div>
+    </div>
+    <div class="overview-card">
+      <div class="ov-title">Compliance Non-Negotiables</div>
+      <div class="ov-content">Zero income claims or earnings promises in any content. No scraping contacts. WhatsApp Business API only. All product claims must align with IMC's approved claims. Consumer Protection (Direct Selling) Rules 2021 compliance is mandatory, not optional.</div>
+    </div>
+    <div class="overview-card" style="border-top:3px solid var(--gold2)">
+      <div class="ov-icon" style="font-size:1.8rem">◈</div>
+      <div class="ov-title" style="color:var(--gold2)">The Free Mentorship Advantage</div>
+      <div class="ov-content">Unlike most direct selling models where new associates are left to figure it out alone, the OJAS WAY ecosystem has dedicated senior leaders who conduct regular free meetings, training sessions, and open discussions for anyone — new joiners, prospects, active builders, or pure health enthusiasts. This ongoing, no-cost mentorship infrastructure — which includes a <strong style="color:var(--cream)">"Become Your Own Family Doctor"</strong> health education track — is the primary mechanism for associate acquisition and retention. It removes every barrier to entry.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── XVIII. THE IMPACT ───────────────────────── -->
+<section id="impact" class="reveal">
+  <span class="section-num">XVIII</span>
+  <div class="section-label">The Impact</div>
+  <h2 class="section-title">What <em>Changes</em> Because of This</h2>
+  <p class="section-intro">OJAS WAY is not a content page with a monetization strategy. It is a genuine attempt to change how an entire generation of Indians relates to their health. If we build this well, here is what we are contributing to the world.</p>
+  <div class="impact-numbers">
+    <div class="impact-num-item">
+      <span class="impact-num">1B+</span>
+      <div class="impact-num-label">Indians who need this perspective</div>
+    </div>
+    <div class="impact-num-item">
+      <span class="impact-num">5,000</span>
+      <div class="impact-num-label">Years of wisdom being brought forward</div>
+    </div>
+    <div class="impact-num-item">
+      <span class="impact-num">3</span>
+      <div class="impact-num-label">Languages breaking the access barrier</div>
+    </div>
+    <div class="impact-num-item">
+      <span class="impact-num">₹0</span>
+      <div class="impact-num-label">Cost to access our free education content</div>
+    </div>
+  </div>
+  <div class="impact-pillars">
+    <div class="impact-pillar">
+      <div class="ip-title">Health Literacy for Every Indian</div>
+      <div class="ip-desc">OJAS WAY will give millions of people a vocabulary for their own health — the language of Ayurveda, in their own tongue. Understanding why you feel a certain way is the first step to changing it. We give that to people for free, forever.</div>
+    </div>
+    <div class="impact-pillar">
+      <div class="ip-title">Economic Empowerment Through Wellness</div>
+      <div class="ip-desc">Every associate we bring into the IMC model through OJAS WAY is a person who learns to earn from genuine conviction — not desperation or deception. We are building a model of ethical direct selling that the industry desperately needs more of.</div>
+    </div>
+    <div class="impact-pillar">
+      <div class="ip-title">Cultural Pride Through Science</div>
+      <div class="ip-desc">When a 22-year-old in Pune learns that Ashwagandha has peer-reviewed research behind it, they stop being embarrassed by their grandmother's medicine cabinet. OJAS WAY bridges the gap between "traditional" and "cool" — and that has enormous cultural value.</div>
+    </div>
+    <div class="impact-pillar">
+      <div class="ip-title">A New Standard for Wellness Media</div>
+      <div class="ip-desc">By producing premium, cinematic, multilingual wellness content that educates before it sells, OJAS WAY will raise the standard for what Ayurveda content looks and sounds like in India. We make it impossible for low-quality MLM pitches to feel adequate by comparison.</div>
+    </div>
+  </div>
+  <div class="pull-quote mt-lg">
+    <p>"At its largest expression, OJAS WAY is the face of every health and wellness brand that actually focuses on reaching every human — regardless of their affordability or their location. That is not ambition. That is responsibility."</p>
+  </div>
+</section>
+
+<!-- ── XIX. NON-NEGOTIABLES ────────────────────── -->
+<section id="rules" class="reveal">
+  <span class="section-num">XIX</span>
+  <div class="section-label">Non-Negotiables</div>
+  <h2 class="section-title">The <em>Lines We Never Cross</em></h2>
+  <p class="section-intro">Every team member, every collaborator, and every piece of content is bound by these rules. They are not guidelines. They are the floor. Violating any of them — even once, even for a short-term gain — undermines the trust that takes years to build and minutes to destroy.</p>
+  <div class="rules-grid">
+    <div class="rules-col">
+      <div class="rules-header">
+        <h3 class="never">✕ We Never Do This</h3>
+      </div>
+      <ul class="rules-list">
+        <li class="rule-item never">Lead with IMC branding or product promotion in any awareness content</li>
+        <li class="rule-item never">Make explicit or implied income earnings claims in any content or DM</li>
+        <li class="rule-item never">Scrape, purchase, or access contact lists without explicit consent</li>
+        <li class="rule-item never">Use unofficial WhatsApp bulk messaging tools — accounts and brand reputation are at risk</li>
+        <li class="rule-item never">Automate the business opportunity conversation — ever</li>
+        <li class="rule-item never">Recommend a product we haven't used or genuinely believe in</li>
+        <li class="rule-item never">Shame, guilt, or fear-monger around health to drive conversions</li>
+        <li class="rule-item never">Copy another creator's format, hook, or creative approach</li>
+        <li class="rule-item never">Produce content in a language we are not fluent in without native review</li>
+        <li class="rule-item never">Let short-term engagement metrics override long-term brand trust decisions</li>
+        <li class="rule-item never">Publish health information without verifying its alignment with Ayurvedic principles</li>
+        <li class="rule-item never">Use the word "cure," "treat," or "heal" in relation to any product</li>
+      </ul>
+    </div>
+    <div class="rules-col">
+      <div class="rules-header">
+        <h3 class="always">✓ We Always Do This</h3>
+      </div>
+      <ul class="rules-list">
+        <li class="rule-item always">Lead with education, earn trust, then introduce the solution</li>
+        <li class="rule-item always">Maintain the 60-20-20 content ratio — non-negotiable in all phases</li>
+        <li class="rule-item always">Keep product education and business mentorship clearly sequenced — customer trust before associate invitation</li>
+        <li class="rule-item always">Use authentic, unscripted personal testimonials — real experiences only</li>
+        <li class="rule-item always">Respond to every DM and comment in the OJAS WAY voice — relationships, not transactions</li>
+        <li class="rule-item always">Review compliance with India's Consumer Protection (Direct Selling) Rules 2021</li>
+        <li class="rule-item always">Produce all conversion content with official WhatsApp Business API tools only</li>
+        <li class="rule-item always">Credit and cite Ayurvedic sources, scriptures, or research where relevant</li>
+        <li class="rule-item always">Protect every community member's data with the same seriousness as a financial institution</li>
+        <li class="rule-item always">Review this brand brief before making any major strategic decision</li>
+        <li class="rule-item always">Build the manual version of every funnel step before automating it</li>
+        <li class="rule-item always">Update the brief when the brand evolves — a living document, not a frozen artifact</li>
+        <li class="rule-item always">Invite interested community members — prospects, customers, health enthusiasts — to the free mentorship sessions run by senior leaders</li>
+        <li class="rule-item always">Present the Free Mentorship Programme as the primary on-ramp to associateship — it costs nothing to attend and delivers transformational value</li>
+        <li class="rule-item always">Highlight the "Become Your Own Family Doctor" health education track to anyone interested in deep Ayurvedic learning — no business obligation required</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── XX. THE FREE MENTORSHIP PROGRAMME ───────── -->
+<section id="mentorship" class="reveal">
+  <span class="section-num">XX</span>
+  <div class="section-label">The Free Mentorship Programme</div>
+  <h2 class="section-title">The <em>Associate Engine</em> — Built on Free Knowledge</h2>
+  <p class="section-intro">This is not a bonus feature. This is not an afterthought. The Free Mentorship Programme is the primary mechanism through which OJAS WAY converts product customers into committed, capable business associates — and it costs participants absolutely nothing. Customers are won through product knowledge and benefits. Associates are won through free mentorship. These are two separate engines and neither borrows from the other.</p>
+
+  <div class="pull-quote">
+    <p>"Customers are built through product knowledge and benefits. Associates are built through free mentorship by dedicated senior leaders. This is the OJAS WAY system — and both engines run for free."</p>
+  </div>
+
+  <!-- ── Dual Acquisition Model ── -->
+  <div class="section-label" style="margin-bottom:16px">The Two-Engine Model</div>
+  <div class="overview-grid" style="grid-template-columns:1fr 1fr;margin-bottom:56px">
+    <div class="overview-card" style="border-top:3px solid var(--saffron);text-align:center;padding:48px 40px">
+      <div style="font-family:var(--fd);font-size:3rem;font-weight:300;color:var(--saffron);margin-bottom:6px">Customer</div>
+      <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Acquisition Engine</div>
+      <div style="font-family:var(--fd);font-size:1.25rem;font-style:italic;color:var(--cream);margin-bottom:16px">Product Knowledge &amp; Benefits</div>
+      <div class="ov-content">Educational content, product explainers, authentic testimonials, and real results convince people of what the products deliver. They buy because they believe — and their belief was earned through honest education, not a pitch.</div>
+    </div>
+    <div class="overview-card" style="border-top:3px solid var(--gold);text-align:center;padding:48px 40px">
+      <div style="font-family:var(--fd);font-size:3rem;font-weight:300;color:var(--gold);margin-bottom:6px">Associate</div>
+      <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:20px">Acquisition Engine</div>
+      <div style="font-family:var(--fd);font-size:1.25rem;font-style:italic;color:var(--cream);margin-bottom:16px">Free Mentorship Programmes</div>
+      <div class="ov-content">Dedicated senior leaders at the highest level of the business run regular free meetings, discussions, and training sessions — open to anyone at any stage, no prerequisites, no obligations. The mentorship is what converts belief into commitment.</div>
+    </div>
+  </div>
+
+  <!-- ── Who Runs It ── -->
+  <div class="vm-statement">These sessions are led by people who have <em>built real businesses</em> in this model — not trainers, not motivational speakers. People whose knowledge was earned through genuine results.</div>
+  <p class="section-intro" style="margin-top:24px">This is what separates the OJAS WAY associate model from every generic direct selling programme. The access given to anyone who walks in — for free — is access that most business coaching charges lakhs of rupees for. Senior leaders show up regularly, consistently, and without a fee. That generosity is the model.</p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <!-- ── Four Pillars ── -->
+  <div class="section-label" style="margin-bottom:12px">What the Programme Offers</div>
+  <h3 style="font-family:var(--fd);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:500;color:var(--cream);margin-bottom:48px;line-height:1.2">Four <em>Pillars</em> of Free Knowledge</h3>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="val-num">A</div>
+      <div class="val-name">Regular Meetings</div>
+      <div class="val-tagline">"Show up. Learn. Grow — at zero cost."</div>
+      <div class="val-desc">Structured group meetings led by senior leaders who have built real businesses in this model. Not motivational fluff — practical, actionable, real-world knowledge on building the business, understanding the products, and replicating the OJAS WAY system. Delivered consistently, repeatedly, and for free.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">B</div>
+      <div class="val-name">Open Discussions</div>
+      <div class="val-tagline">"Every question welcome. No gatekeeping."</div>
+      <div class="val-desc">Open-format discussions where anyone — from the newest joiner to the most curious prospect — can ask anything about the business, the products, the strategy, or the system. No gatekeeping. No judgment. Pure knowledge-sharing between people who genuinely believe in the same mission.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">C</div>
+      <div class="val-name">Training Sessions</div>
+      <div class="val-tagline">"From curious beginner to confident builder."</div>
+      <div class="val-desc">Dedicated training on product knowledge, the OJAS WAY content system, funnel understanding, community management, and practical execution steps — everything a new associate needs to start earning and everything an active one needs to earn more. Free, ongoing, and led by the best in the ecosystem.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-num">D</div>
+      <div class="val-name">Health &amp; Wellness Education</div>
+      <div class="val-tagline">"For anyone who wants to learn — no business required."</div>
+      <div class="val-desc">Comprehensive Ayurvedic wellness sessions covering daily health practices, seasonal routines, natural remedies, and evidence-based traditional wisdom. This track serves anyone interested in genuine health — whether or not they ever join the business. The knowledge itself is the value. No business agenda required to attend.</div>
+    </div>
+  </div>
+
+  <!-- ── Become Your Own Family Doctor ── Signature Highlight ── -->
+  <div style="border:2px solid var(--gold);background:var(--card2);padding:48px;margin-top:56px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--saffron),var(--gold2),var(--saffron),var(--gold))"></div>
+    <div style="position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(196,154,42,0.07),transparent);border-radius:50%"></div>
+    <div style="position:relative;z-index:1">
+      <div class="section-label" style="margin-bottom:16px">The Signature Track — Deep Knowledge for the Truly Dedicated</div>
+      <div style="font-family:var(--fd);font-size:clamp(2rem,4vw,3.5rem);font-weight:500;color:var(--gold2);margin-bottom:20px;line-height:1.1">Become Your Own<br><em>Family Doctor</em></div>
+      <div style="font-family:var(--fd);font-size:1.15rem;font-style:italic;color:var(--cream2);margin-bottom:40px;max-width:720px;line-height:1.65">For those who commit to the deep learning path — a transformative programme that turns ordinary people into knowledgeable, confident guardians of their own and their family's health. No medical degree required. No prior Ayurveda knowledge needed. Just the willingness to learn.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:36px">
+        <div>
+          <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">What You Learn</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li style="font-size:0.85rem;color:var(--cream2);line-height:1.5;display:flex;gap:8px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0;font-size:0.75rem;padding-top:2px">▸</span>Ayurvedic principles for daily health management</li>
+            <li style="font-size:0.85rem;color:var(--cream2);line-height:1.5;display:flex;gap:8px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0;font-size:0.75rem;padding-top:2px">▸</span>Seasonal routines and dinacharya for the whole family</li>
+            <li style="font-size:0.85rem;color:var(--cream2);line-height:1.5;display:flex;gap:8px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0;font-size:0.75rem;padding-top:2px">▸</span>Understanding Prakriti (body type) for each family member</li>
+            <li style="font-size:0.85rem;color:var(--cream2);line-height:1.5;display:flex;gap:8px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0;font-size:0.75rem;padding-top:2px">▸</span>Identifying early imbalances before they become illness</li>
+            <li style="font-size:0.85rem;color:var(--cream2);line-height:1.5;display:flex;gap:8px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0;font-size:0.75rem;padding-top:2px">▸</span>Safe, effective natural remedies for common ailments</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Who It's For</div>
+          <div style="font-size:0.85rem;color:var(--cream2);line-height:1.8">Anyone who wants to stop being reactive about health and start being proactive. Parents, young professionals, homemakers, health enthusiasts. People who want to reduce dependence on reactive medicine and build genuine, lasting wellness literacy for themselves and their entire family.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">The Cost</div>
+          <div style="font-family:var(--fd);font-size:5rem;font-weight:300;color:var(--gold2);line-height:1;margin-bottom:8px">₹0</div>
+          <div style="font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--cream2)">Free. Always.<br>For every Indian who wants it.</div>
+        </div>
+      </div>
+      <div style="padding:24px;background:rgba(11,9,5,0.5);border:1px solid var(--border2);border-left:3px solid var(--gold)">
+        <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Why This Track Exists</div>
+        <div style="font-size:0.9rem;color:var(--cream2);line-height:1.85;max-width:760px">A person who truly understands their own health, who can identify what their family needs and why, who has built a real relationship with Ayurvedic wisdom — that person is the most natural, most genuine, most trustworthy associate OJAS WAY can have. You cannot manufacture that conviction. You can only create the conditions for it to grow. Free health education is those conditions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <!-- ── Who the Programme Welcomes ── -->
+  <div class="section-label" style="margin-bottom:12px">The Open Door Policy</div>
+  <h3 style="font-family:var(--fd);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:500;color:var(--cream);margin-bottom:36px;line-height:1.2">Who the Mentorship <em>Welcomes</em></h3>
+  <p class="section-intro">One entry requirement: genuine interest. Every other barrier is zero. These are the five people who walk through the door:</p>
+
+  <ul class="problem-list">
+    <li class="problem-item">
+      <div class="prob-num">01</div>
+      <div class="prob-title">The Interested Prospect</div>
+      <div class="prob-desc">Someone who has come across OJAS WAY content and wants to learn more — about health, about the system, about whether this could work for them. The free mentorship session is the most natural, lowest-pressure next step. No commitment required to attend. The quality of what they experience converts curiosity into conviction.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">02</div>
+      <div class="prob-title">The New Joiner</div>
+      <div class="prob-desc">Someone who has just registered as an associate and needs clear, practical guidance on where to start, what to do first, and how the system works. The mentorship becomes their onboarding, their orientation, and their ongoing support infrastructure — replacing the confusion that kills most new direct selling careers before they begin.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">03</div>
+      <div class="prob-title">The Active Hustler</div>
+      <div class="prob-desc">Someone already working the business who wants to earn more, grow faster, and access the strategic thinking of senior leaders who have already done it. This tier of mentorship — direct, recurring access to the highest-performing people in the ecosystem — is what most business coaching charges lakhs of rupees for. Here, it is free.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">04</div>
+      <div class="prob-title">The Health Enthusiast</div>
+      <div class="prob-desc">Someone with zero interest in the business who simply wants deep Ayurvedic health education for themselves and their family. They are equally welcome at every session — no agenda attached, no pressure applied. The knowledge is the service. If they eventually find their way to the business, it will be because the knowledge changed their life. That is the best possible reason to join.</div>
+    </li>
+    <li class="problem-item">
+      <div class="prob-num">05</div>
+      <div class="prob-title">The Ready-to-Learn Seeker</div>
+      <div class="prob-desc">Someone who has seen results in people they know, heard about OJAS WAY, and arrived ready to understand the full picture. The mentorship shows them everything — transparent, honest, and complete — so that any decision they make to join is fully informed, genuinely chosen, and built to last.</div>
+    </li>
+  </ul>
+
+  <!-- ── Funnel Integration ── -->
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <div style="background:var(--card);border:1px solid var(--border2);border-left:4px solid var(--gold);padding:40px">
+    <div class="section-label" style="margin-bottom:14px">Integration with the OJAS WAY Funnel System</div>
+    <div style="font-family:var(--fd);font-size:clamp(1.3rem,2vw,1.8rem);font-weight:400;color:var(--cream);line-height:1.4;margin-bottom:28px">The mentorship programme is where the customer path becomes the associate path — <em style="color:var(--gold)">naturally, without pressure, and only when the person is genuinely ready.</em></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div>
+        <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:14px">How it connects to the funnels</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Product customers are invited to free sessions after experiencing results</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Sessions deepen belief in the products, the mission, and the people behind it</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>The business question arises naturally — without it ever being forced</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>New associates enter the business path already sold — the mentorship did the closing</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:var(--fm);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:14px">What makes this different from every other model</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Most direct selling models recruit first, educate later. This inverts that entirely.</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Free knowledge removes every financial barrier to participation</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Senior leaders' direct involvement signals real, not performative, value</li>
+          <li style="font-size:0.85rem;color:var(--cream2);line-height:1.6;display:flex;gap:10px;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">→</span>Health education track makes it genuinely valuable even to non-business participants</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOCUMENT FOOTER ───────────────────────────── -->
+<footer class="doc-footer">
+  <div>
+    <div class="footer-brand">OJAS WAY</div>
+    <div style="font-size:0.85rem;color:var(--dim);margin-top:4px;font-style:italic;font-family:var(--fd)">Reviving Ancient Intelligence. Rebuilding Modern India.</div>
+  </div>
+  <div class="footer-meta">
+    Brand Brief · Version 2.0<br>
+    Foundation Document · Confidential<br>
+    All sections subject to revision as brand evolves
+  </div>
+</footer>
+
+</main>
+
+<script>
+// ── SCROLL PROGRESS ───────────────────────────
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = Math.min(scrolled, 100) + '%';
+  updateActiveNav();
+  revealOnScroll();
+});
+
+// ── ACTIVE NAV ITEM ────────────────────────────
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('href') === '#' + current) {
+      item.classList.add('active');
+    }
+  });
+}
+
+// ── SCROLL REVEAL ──────────────────────────────
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 80) {
+      el.classList.add('visible');
+    }
+  });
+}
+revealOnScroll();
+
+// ── ROLE TABS ──────────────────────────────────
+function showRole(role) {
+  document.querySelectorAll('.role-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('role-' + role);
+  if (panel) panel.classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── SMOOTH ANCHOR SCROLL ───────────────────────
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── INITIAL REVEAL ─────────────────────────────
+window.addEventListener('load', revealOnScroll);
+</script>
+</body>
+</html>

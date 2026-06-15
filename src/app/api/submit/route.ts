@@ -35,12 +35,20 @@ export async function POST(request: Request) {
     if (process.env.RESEND_API_KEY && outcomeId && email) {
       const emailContent = getEmailTemplate(outcomeId as OutcomeId, name);
       if (emailContent) {
-        await resend.emails.send({
-          from: 'OJAS WAY <hello@ojasway.com>', // Note: the user must verify this sender in Resend
+        const fromEmail = process.env.RESEND_FROM_EMAIL || 'OJAS WAY <hello@ojasway.com>';
+        const { data, error } = await resend.emails.send({
+          from: fromEmail,
           to: [email],
           subject: emailContent.subject,
           html: emailContent.html
         });
+        
+        if (error) {
+          console.error("Resend API Error:", error);
+          // We don't throw here so that Google Sheets still succeeds even if email fails
+        } else {
+          console.log("Email sent successfully:", data);
+        }
       }
     } else {
        console.warn("RESEND_API_KEY not configured. Skipping email delivery.");

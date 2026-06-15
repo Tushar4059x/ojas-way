@@ -3,10 +3,15 @@ import { OutcomeId } from "./scoring";
 export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
   const safeName = name || "friend";
   
-  const baseHtml = (content: string) => `
+  const appUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ojas-way.vercel.app";
+  
+  const baseHtml = (content: string, id: OutcomeId) => `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #131009; line-height: 1.6;">
       <h1 style="color: #C49A2A; text-align: center; margin-bottom: 32px;">The OJAS WAY</h1>
       ${content}
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="${appUrl}/reports/${id}.pdf" style="display: inline-block; background-color: #C49A2A; color: #0B0905; text-decoration: none; padding: 16px 32px; font-weight: bold; font-family: monospace; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Download Your Full PDF Report</a>
+      </div>
       <br/>
       <hr style="border: none; border-top: 1px solid #E5E7EB; margin: 32px 0;" />
       <p style="text-align: center; color: #6B7280; font-size: 14px;">
@@ -47,7 +52,7 @@ export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
           <h3 style="margin-top: 32px;">Next Steps:</h3>
           <p>If you want to permanently restructure your baseline and stop relying on adrenaline to get through the week, let's map out your personalized operating system.</p>
           <p><a href="#" style="color: #C49A2A; font-weight: bold;">Secure Your 15-Minute Lifestyle Audit Here &rarr;</a></p>
-        `)
+        `, outcomeId)
       };
       
     case "THE_DEPLETED_BATTERY":
@@ -81,7 +86,7 @@ export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
           <h3 style="margin-top: 32px;">Next Steps:</h3>
           <p>Replenishing a depleted system requires strategic intervention. Let’s design a recovery protocol that fits your life without adding more to your to-do list.</p>
           <p><a href="#" style="color: #C49A2A; font-weight: bold;">Secure Your 15-Minute Lifestyle Audit Here &rarr;</a></p>
-        `)
+        `, outcomeId)
       };
       
     case "THE_STAGNANT_CIRCUIT":
@@ -115,7 +120,7 @@ export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
           <h3 style="margin-top: 32px;">Next Steps:</h3>
           <p>Momentum returns through small, precise actions. Let our strategists help you build an automated routine that makes healthy habits frictionless.</p>
           <p><a href="#" style="color: #C49A2A; font-weight: bold;">Secure Your 15-Minute Lifestyle Audit Here &rarr;</a></p>
-        `)
+        `, outcomeId)
       };
       
     case "THE_FRICTION_POINT_PROFILE":
@@ -149,7 +154,7 @@ export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
           <h3 style="margin-top: 32px;">Next Steps:</h3>
           <p>If you want to maintain your high performance without the collateral damage to your mood, digestion, and relationships, we need to map your cooling protocol.</p>
           <p><a href="#" style="color: #C49A2A; font-weight: bold;">Secure Your 15-Minute Lifestyle Audit Here &rarr;</a></p>
-        `)
+        `, outcomeId)
       };
       
     case "THE_FRAGILE_EQUILIBRIUM":
@@ -183,10 +188,10 @@ export function getEmailTemplate(outcomeId: OutcomeId, name: string) {
           <h3 style="margin-top: 32px;">Next Steps:</h3>
           <p>You have built a great foundation. Now, let’s bulletproof it. Book a session with our team to map out a preventive lifestyle strategy that ensures you never fall back into burnout.</p>
           <p><a href="#" style="color: #C49A2A; font-weight: bold;">Secure Your 15-Minute Lifestyle Audit Here &rarr;</a></p>
-        `)
+        `, outcomeId)
       };
       
     default:
-      return { subject: "Your OJAS WAY Report", html: baseHtml("<p>Your report is ready.</p>") };
+      return { subject: "Your OJAS WAY Report", html: baseHtml("<p>Your report is ready.</p>", "THE_FRAGILE_EQUILIBRIUM") };
   }
 }

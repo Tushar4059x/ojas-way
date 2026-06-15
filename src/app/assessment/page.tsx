@@ -50,7 +50,7 @@ export default function AssessmentPage() {
         
         <div style={{ animation: "fadeIn 0.5s" }} key={question.id}>
           <div className="text-mono" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>
-            Module {Math.ceil(question.id / 5)} — {question.module} &nbsp;&nbsp;|&nbsp;&nbsp; {question.id} / 15
+            Question {question.id} / 12
           </div>
           
           <h2 className="text-serif" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--cream)", marginBottom: "48px", lineHeight: 1.2 }}>

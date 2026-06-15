@@ -14,12 +14,20 @@ export default function Home() {
           {/* Content Side */}
           <div style={{ maxWidth: "600px", animation: "fadeUp 0.8s forwards" }}>
             <div className="eyebrow" style={{ marginBottom: "24px" }}>The Ojas Way</div>
-            <h1 className="title-large" style={{ marginBottom: "24px" }}>
-              Redefining <span>Wellness.</span>
+            <h1 className="title-large" style={{ marginBottom: "24px", fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}>
+              A Personal <span>Energy Report.</span>
             </h1>
-            <p className="subtitle" style={{ marginBottom: "48px" }}>
-              Join a movement that empowers you to live better, learn the true science of health, and grow alongside a community of pioneers.
-            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "48px" }}>
+              <p className="subtitle" style={{ fontSize: "1.1rem", fontStyle: "normal", color: "var(--cream)" }}>
+                Most assessments measure what is wrong with you. This one reads how your energy currently <em>moves</em> — where it races, where it heats, where it pools, where it has quietly thinned.
+              </p>
+              <p className="subtitle" style={{ fontSize: "1.1rem", fontStyle: "normal", color: "var(--cream)" }}>
+                In a few unhurried minutes you'll receive an editorial portrait of your present energetic signature, drawn from the somatic logic of classical Ayurveda and written for a modern life.
+              </p>
+              <p className="subtitle" style={{ fontSize: "1.1rem", fontStyle: "italic", color: "var(--gold)", marginTop: "16px" }}>
+                There are no right answers. Only honest ones.
+              </p>
+            </div>
             
             <div style={{ display: "flex", gap: "32px", flexWrap: "wrap", borderTop: "1px solid var(--border)", paddingTop: "32px", marginBottom: "48px" }}>
               <div>
@@ -33,7 +41,7 @@ export default function Home() {
             </div>
             
             <Link href="/assessment" className="btn-primary" style={{ display: "inline-block", textAlign: "center", textDecoration: "none", maxWidth: "400px" }}>
-              Take the Imbalance Assessment
+              Begin the reading
             </Link>
           </div>
         </div>

@@ -46,10 +46,16 @@ export default async function ResultPage({
           </div>
         </div>
 
-        <div className="card-pad" style={{ background: "var(--card2)", borderLeft: "4px solid var(--gold)", marginBottom: "64px" }}>
+        <div className="card-pad" style={{ background: "var(--card2)", borderLeft: "4px solid var(--gold)", marginBottom: "48px" }}>
           <h3 className="text-mono" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>Immediate Action</h3>
           <p className="text-sans" style={{ fontSize: "1.1rem", color: "var(--cream)", lineHeight: 1.8, marginBottom: "24px" }}>{outcome.immediateAction}</p>
           <div className="text-serif" style={{ fontSize: "1.5rem", fontStyle: "italic", color: "var(--gold)" }}>"{outcome.insight}"</div>
+        </div>
+
+        <div style={{ textAlign: "center", marginBottom: "64px" }}>
+          <a href={`/reports/${outcomeId}.pdf`} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: "inline-block", textDecoration: "none", maxWidth: "400px", width: "100%" }}>
+            Download Your Full PDF Report
+          </a>
         </div>
 
         <div style={{ textAlign: "center", borderTop: "1px solid var(--border)", paddingTop: "48px" }}>

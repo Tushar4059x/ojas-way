@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import { getEmailTemplate } from '@/lib/emailTemplates';
 import { OutcomeId } from '@/lib/scoring';
 
-const resend = new Resend(process.env.RESEND_API_KEY || "mock_key");
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 export async function POST(request: Request) {
   try {
@@ -31,27 +37,25 @@ export async function POST(request: Request) {
       console.warn("GOOGLE_SCRIPT_URL not configured. Skipping sheets logging.");
     }
 
-    // 2. Resend Email Logic
-    if (process.env.RESEND_API_KEY && outcomeId && email) {
+    // 2. Nodemailer Email Logic
+    if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD && outcomeId && email) {
       const emailContent = getEmailTemplate(outcomeId as OutcomeId, name);
       if (emailContent) {
-        const fromEmail = process.env.RESEND_FROM_EMAIL || 'OJAS WAY <hello@ojasway.com>';
-        const { data, error } = await resend.emails.send({
-          from: fromEmail,
-          to: [email],
-          subject: emailContent.subject,
-          html: emailContent.html
-        });
-        
-        if (error) {
-          console.error("Resend API Error:", error);
+        try {
+          const info = await transporter.sendMail({
+            from: `"The OJAS WAY" <${process.env.GMAIL_USER}>`,
+            to: email,
+            subject: emailContent.subject,
+            html: emailContent.html,
+          });
+          console.log("Email sent successfully:", info.messageId);
+        } catch (error) {
+          console.error("Nodemailer Error:", error);
           // We don't throw here so that Google Sheets still succeeds even if email fails
-        } else {
-          console.log("Email sent successfully:", data);
         }
       }
     } else {
-       console.warn("RESEND_API_KEY not configured. Skipping email delivery.");
+       console.warn("GMAIL_USER or GMAIL_APP_PASSWORD not configured. Skipping email delivery.");
     }
 
     return NextResponse.json({ success: true });
